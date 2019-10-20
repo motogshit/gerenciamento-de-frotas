@@ -1,2 +1,3 @@
 # gerenciamento-de-frotas
-TRABALHO PARA OUTRO PREGUICOSO
+
+Aplicação para genrenciamento de frotas de veiculos

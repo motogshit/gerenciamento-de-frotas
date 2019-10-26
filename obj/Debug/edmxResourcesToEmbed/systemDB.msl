@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="theSystemModelStoreContainer" CdmEntityContainer="theSystemEntities">
+    <EntitySetMapping Name="empresas">
+      <EntityTypeMapping TypeName="theSystemModel.empresas">
+        <MappingFragment StoreEntitySet="empresas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Razao" ColumnName="Razao" />
+          <ScalarProperty Name="Fantasia" ColumnName="Fantasia" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Filial" ColumnName="Filial" />
+          <ScalarProperty Name="Filial_Numero" ColumnName="Filial_Numero" />
+          <ScalarProperty Name="CNPJ_Sede" ColumnName="CNPJ_Sede" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

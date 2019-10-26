@@ -13,4 +13,12 @@ O que falta fazer?
 - Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
 - Sistema de recibos onde serão armazenados as despesas da empresa com gasolina e manutenção dos veiculos.
 
+
+Instruções para uso
+
+- Instale o Microsoft SQl Server Express em seu computador
+- Instale o SSMS para realizar a restauração do Arquivo do banco de dados no servidor
+- Execute a aplicação e faça um novo registro.
+
+
 Prazo para finalizar 26 de Novembro de 2019

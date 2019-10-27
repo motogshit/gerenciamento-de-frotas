@@ -89,7 +89,7 @@ namespace sistemasfrotas.Views
                 c.Filial = Convert.ToString(dataGridView1.CurrentRow.Cells["Filial"].Value);
 
                 //Chama o construtor do form de cadastro de empresas com construtor personalizado para receber um objeto empresa como argumento
-                CadastroEmpresa form = new CadastroEmpresa(c);
+                CadastroEmpresa form = new CadastroEmpresa(c, "update");
                 //Independente do resultado atualiza o DataGridView
                 if (form.ShowDialog() == DialogResult.OK)
                 {

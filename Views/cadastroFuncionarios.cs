@@ -12,23 +12,29 @@ namespace sistemasfrotas.Views
 {
     public partial class cadastroFuncionarios : Form
     {
+        private string _state { get; set; }
+        private int _id { get; set; }
+
+        private systemDB db = new systemDB();
+
         public cadastroFuncionarios()
         {
             InitializeComponent();
-            using(systemDB db = new systemDB())
-            {
+            
                 cbEmpresa.ValueMember = "CNPJ";
 
                 cbEmpresa.DisplayMember = "Razao";
                 
                 cbEmpresa.DataSource = db.empresas.ToList();
-            }
+            
         }
 
-        public cadastroFuncionarios(funcionarios edit)
+        public cadastroFuncionarios(funcionarios edit,string state)
         {
             InitializeComponent();
             clear();
+            _state = state;
+            _id = edit.ID;
             editar(edit);
         }
 
@@ -36,13 +42,12 @@ namespace sistemasfrotas.Views
         {
             List<empresas> emp = new List<empresas>();
 
-            using (systemDB db = new systemDB())
-            {
+            
                 dados = db.funcionarios.Where(x => x.ID == dados.ID).FirstOrDefault();
 
 
                 emp = db.empresas.Where(x => x.CNPJ == dados.CNPJ_Empresa).ToList();
-            }
+            
             txNome.Text = dados.Nome;
             txCargo.Text = dados.Cargo;
             txCPF.Text = dados.CPF;
@@ -63,7 +68,26 @@ namespace sistemasfrotas.Views
         {
             funcionarios fun = new funcionarios();
 
-            using (systemDB db = new systemDB())
+            if(_state == "update")
+            {
+                funcionarios upd = db.funcionarios.First(x => x.ID == _id);
+
+                upd.Nome = txNome.Text.Trim();
+                upd.Cargo = txCargo.Text.Trim();
+                upd.CPF = txCPF.Text.Trim();
+                upd.CHN = txCHN.Text.Trim();
+                upd.Telefone = txTelefone.Text.Trim();
+                upd.Rua = txRua.Text.Trim();
+                upd.Bairro = txBairro.Text.Trim();
+                upd.Cidade = txCidade.Text.Trim();
+                upd.Estado = txEstado.Text.Trim();
+                upd.Numero_da_casa = txCasa.Text.Trim();
+                upd.Numero_Cracha = txCracha.Text.Trim();
+                upd.CNPJ_Empresa = cbEmpresa.SelectedValue.ToString();
+
+                db.SaveChanges();
+            }
+            else
             {
                 fun.Nome = txNome.Text.Trim();
                 fun.Cargo = txCargo.Text.Trim();
@@ -78,17 +102,17 @@ namespace sistemasfrotas.Views
                 fun.Numero_Cracha = txCracha.Text.Trim();
                 fun.CNPJ_Empresa = cbEmpresa.SelectedValue.ToString();
 
-                if(db.funcionarios.Where(x => x.CPF == fun.CPF).FirstOrDefault() == null)
+                if (db.funcionarios.Where(x => x.CPF == fun.CPF).FirstOrDefault() == null)
                 {
                     db.funcionarios.Add(fun);
                     db.SaveChanges();
+                    clear();
                 }
                 else
                 {
-                    db.Entry(fun).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                    MessageBox.Show("Este CPF já está cadastrado, verifique o usuario na lista","Erro ao cadastrar", MessageBoxButtons.OK);
                 }
-                clear();
+                
             }
         }
 

@@ -21,4 +21,9 @@ Instruções para uso
 - Execute a aplicação e faça um novo registro.
 
 
+O que há de novo?
+- 27/10/2019 .. 00:57 
+-- Correção de bug que estava duplicando registros ao atualizar
+-- Adição de indexação unica para as colunas CNPJ na tabela empresas e CPF, CNH e Numero_Cracha na tabela funcionarios
+
 Prazo para finalizar 26 de Novembro de 2019

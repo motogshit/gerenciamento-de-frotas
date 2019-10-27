@@ -67,23 +67,24 @@ namespace sistemasfrotas.Views
             {
                 fun.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
 
-                cadastroFuncionarios form = new cadastroFuncionarios(fun);
+                cadastroFuncionarios form = new cadastroFuncionarios(fun, "update");
 
-                if(form.ShowDialog() == DialogResult.OK)
-                {
-                    PopularGrid();
-                }
-                else
-                {
-                    PopularGrid();
-                }
+                
             }
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             cadastroFuncionarios form = new cadastroFuncionarios();
-            form.Show();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                PopularGrid();
+            }
+            else
+            {
+                PopularGrid();
+            }
+
         }
 
         private void btRemover_Click(object sender, EventArgs e)

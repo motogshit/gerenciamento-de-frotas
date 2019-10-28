@@ -7,11 +7,17 @@ O que está funcionando?
 - Cadastro, remoção e atualização de empresas e filiais.
 - Cadastro, remoção e atualização de funcionarios das empresas.
 
+O que está em desenvolvimento no momento?
+
+- Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
+    - já foi desenvolvido o banco de dados
+
 
 O que falta fazer?
 
-- Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
 - Sistema de recibos onde serão armazenados as despesas da empresa com gasolina e manutenção dos veiculos.
+- Sistema de usuarios locais
+- Sistema de comunicação com API mobile.
 
 
 Instruções para uso

@@ -11,6 +11,7 @@ O que está em desenvolvimento no momento?
 
 - Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
     - já foi desenvolvido o banco de dados
+    - Falta desenvolver a integração com o programa
 
 
 O que falta fazer?

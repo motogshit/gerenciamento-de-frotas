@@ -59,8 +59,8 @@ namespace sistemasfrotas.Views
             txEstado.Text = dados.Estado;
             txCasa.Text = dados.Numero_da_casa;
             txCracha.Text = dados.Numero_Cracha;
-            cbEmpresa.ValueMember = "Razao";
-            cbEmpresa.DisplayMember = "CNPJ";
+            cbEmpresa.ValueMember = "CNPJ";
+            cbEmpresa.DisplayMember = "Razao";
             cbEmpresa.DataSource = emp;
         }
 
@@ -101,6 +101,7 @@ namespace sistemasfrotas.Views
                 fun.Numero_da_casa = txCasa.Text.Trim();
                 fun.Numero_Cracha = txCracha.Text.Trim();
                 fun.CNPJ_Empresa = cbEmpresa.SelectedValue.ToString();
+                fun.Adicionado_em = DateTime.Now;
 
                 if (db.funcionarios.Where(x => x.CPF == fun.CPF).FirstOrDefault() == null)
                 {

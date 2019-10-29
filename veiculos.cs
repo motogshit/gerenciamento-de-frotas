@@ -6,56 +6,49 @@ namespace sistemasfrotas
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class funcionarios
+    public partial class veiculos
     {
         public int ID { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Nome { get; set; }
+        public string Modelo { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Cargo { get; set; }
+        public string Marca { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string CPF { get; set; }
+        public string Ano { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string CHN { get; set; }
-
-        [StringLength(150)]
-        public string Telefone { get; set; }
+        public string Placa_Veiculo { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Rua { get; set; }
+        public string Numero_chassi { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Bairro { get; set; }
+        public string Km_Inicial { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Cidade { get; set; }
+        public string Km_Atual { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Estado { get; set; }
+        public string empresa { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Numero_da_casa { get; set; }
+        public string cnpj { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Numero_Cracha { get; set; }
-
-        [Required]
-        [StringLength(150)]
-        public string CNPJ_Empresa { get; set; }
+        public string Status { get; set; }
 
         [DataType("DATETIME")]
         public DateTime Adicionado_em { get; set; }

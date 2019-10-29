@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbEmpresas = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btRemove = new System.Windows.Forms.Button();
+            this.btCadastra = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,56 +93,124 @@
             this.button2.Text = "Salvar";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Aqua;
-            this.button3.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(1033, 609);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 37);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "Salvar";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 106);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1121, 476);
-            this.dataGridView1.TabIndex = 50;
-            // 
-            // cbEmpresas
-            // 
-            this.cbEmpresas.FormattingEnabled = true;
-            this.cbEmpresas.Location = new System.Drawing.Point(24, 61);
-            this.cbEmpresas.Name = "cbEmpresas";
-            this.cbEmpresas.Size = new System.Drawing.Size(121, 29);
-            this.cbEmpresas.TabIndex = 51;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(20, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 21);
+            this.label1.Size = new System.Drawing.Size(147, 21);
             this.label1.TabIndex = 52;
-            this.label1.Text = "Selecione a sua empresa";
+            this.label1.Text = "Listar por Empresas";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.Crimson;
+            this.checkBox1.Location = new System.Drawing.Point(303, 636);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(197, 25);
+            this.checkBox1.TabIndex = 57;
+            this.checkBox1.Text = "Listar todos os veiculos?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.ColumnHeadersHeight = 30;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.Location = new System.Drawing.Point(21, 115);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 50;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Fira Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.RowTemplate.Height = 34;
+            this.dataGridView1.Size = new System.Drawing.Size(1135, 497);
+            this.dataGridView1.TabIndex = 58;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // cbEmpresas
+            // 
+            this.cbEmpresas.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cbEmpresas.FormattingEnabled = true;
+            this.cbEmpresas.Location = new System.Drawing.Point(24, 46);
+            this.cbEmpresas.Name = "cbEmpresas";
+            this.cbEmpresas.Size = new System.Drawing.Size(287, 29);
+            this.cbEmpresas.TabIndex = 60;
+            this.cbEmpresas.SelectedIndexChanged += new System.EventHandler(this.setter);
+            // 
+            // btRemove
+            // 
+            this.btRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btRemove.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btRemove.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemove.ForeColor = System.Drawing.Color.White;
+            this.btRemove.Location = new System.Drawing.Point(163, 624);
+            this.btRemove.Name = "btRemove";
+            this.btRemove.Size = new System.Drawing.Size(134, 37);
+            this.btRemove.TabIndex = 62;
+            this.btRemove.Text = "Remover";
+            this.btRemove.UseVisualStyleBackColor = false;
+            // 
+            // btCadastra
+            // 
+            this.btCadastra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btCadastra.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btCadastra.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btCadastra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btCadastra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btCadastra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCadastra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCadastra.ForeColor = System.Drawing.Color.White;
+            this.btCadastra.Location = new System.Drawing.Point(21, 624);
+            this.btCadastra.Name = "btCadastra";
+            this.btCadastra.Size = new System.Drawing.Size(136, 37);
+            this.btCadastra.TabIndex = 61;
+            this.btCadastra.Text = "Adicionar";
+            this.btCadastra.UseVisualStyleBackColor = false;
+            this.btCadastra.Click += new System.EventHandler(this.btCadastra_Click);
             // 
             // VeiculosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btRemove);
+            this.Controls.Add(this.btCadastra);
             this.Controls.Add(this.cbEmpresas);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btSave);
@@ -157,9 +229,11 @@
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cbEmpresas;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btRemove;
+        private System.Windows.Forms.Button btCadastra;
     }
 }

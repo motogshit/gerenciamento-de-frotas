@@ -126,6 +126,7 @@ namespace sistemasfrotas.Views
                     emp.Filial = "Não".Trim();
                     emp.CNPJ_Sede = "".Trim();
                     emp.Filial_Numero = "".Trim();
+                    emp.Adicionado_em = DateTime.Now;
                     db.empresas.Add(emp);
                     db.SaveChanges();
                 }

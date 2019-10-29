@@ -65,7 +65,7 @@
             this.txCracha = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
             this.atualizaEmpresas = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -423,22 +423,22 @@
             this.btSave.UseVisualStyleBackColor = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // button1
+            // btCancelar
             // 
-            this.button1.BackColor = System.Drawing.Color.BlueViolet;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(417, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 37);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btCancelar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btCancelar.FlatAppearance.BorderSize = 0;
+            this.btCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
+            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btCancelar.Location = new System.Drawing.Point(417, 287);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(112, 37);
+            this.btCancelar.TabIndex = 48;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = false;
+            this.btCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
             // atualizaEmpresas
             // 
@@ -451,7 +451,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(674, 341);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.txCracha);
@@ -490,7 +490,12 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(690, 380);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(690, 380);
             this.Name = "cadastroFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastroFuncionarios";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -535,7 +540,7 @@
         private System.Windows.Forms.TextBox txCracha;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Timer atualizaEmpresas;
     }
 }

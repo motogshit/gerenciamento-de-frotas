@@ -68,5 +68,8 @@ namespace sistemasfrotas
         [Required]
         [StringLength(150)]
         public string CEP { get; set; }
+
+        [DataType("DATETIME")]
+        public DateTime Adicionado_em { get; set; }
     }
 }

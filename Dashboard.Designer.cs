@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.HeaderLabel = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.btnRelatorios = new System.Windows.Forms.Button();
             this.btnFuncionarios = new System.Windows.Forms.Button();
@@ -37,45 +36,32 @@
             this.btnPagamentos = new System.Windows.Forms.Button();
             this.btnEmpresa = new System.Windows.Forms.Button();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbdata = new System.Windows.Forms.Label();
+            this.lbhora = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbAcesso = new System.Windows.Forms.Label();
+            this.lbUsuario = new System.Windows.Forms.Label();
             this.Container = new System.Windows.Forms.Panel();
-            this.HeaderPanel.SuspendLayout();
+            this.relogio = new System.Windows.Forms.Timer(this.components);
             this.MenuPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // HeaderPanel
-            // 
-            this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeaderPanel.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.HeaderPanel.Controls.Add(this.HeaderLabel);
-            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(1366, 35);
-            this.HeaderPanel.TabIndex = 0;
-            // 
-            // HeaderLabel
-            // 
-            this.HeaderLabel.AutoSize = true;
-            this.HeaderLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeaderLabel.Location = new System.Drawing.Point(30, 7);
-            this.HeaderLabel.Name = "HeaderLabel";
-            this.HeaderLabel.Size = new System.Drawing.Size(212, 21);
-            this.HeaderLabel.TabIndex = 0;
-            this.HeaderLabel.Text = "Em Fase de Desenvolvimento";
             // 
             // MenuPanel
             // 
-            this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.MenuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MenuPanel.BackColor = System.Drawing.Color.MidnightBlue;
             this.MenuPanel.Controls.Add(this.btnRelatorios);
             this.MenuPanel.Controls.Add(this.btnFuncionarios);
             this.MenuPanel.Controls.Add(this.btnVeiculos);
             this.MenuPanel.Controls.Add(this.btnPagamentos);
             this.MenuPanel.Controls.Add(this.btnEmpresa);
-            this.MenuPanel.Location = new System.Drawing.Point(0, 36);
+            this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(190, 732);
+            this.MenuPanel.Size = new System.Drawing.Size(190, 768);
             this.MenuPanel.TabIndex = 1;
             // 
             // btnRelatorios
@@ -84,15 +70,18 @@
             this.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRelatorios.FlatAppearance.BorderSize = 0;
             this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatorios.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.ForeColor = System.Drawing.Color.White;
+            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRelatorios.Location = new System.Drawing.Point(8, 248);
             this.btnRelatorios.Name = "btnRelatorios";
             this.btnRelatorios.Size = new System.Drawing.Size(175, 51);
             this.btnRelatorios.TabIndex = 4;
             this.btnRelatorios.Text = "Relatorios";
-            this.btnRelatorios.UseVisualStyleBackColor = true;
+            this.btnRelatorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorios.UseVisualStyleBackColor = false;
             // 
             // btnFuncionarios
             // 
@@ -100,15 +89,18 @@
             this.btnFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncionarios.FlatAppearance.BorderSize = 0;
             this.btnFuncionarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnFuncionarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnFuncionarios.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionarios.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionarios.Location = new System.Drawing.Point(8, 191);
+            this.btnFuncionarios.ForeColor = System.Drawing.Color.White;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(8, 77);
             this.btnFuncionarios.Name = "btnFuncionarios";
             this.btnFuncionarios.Size = new System.Drawing.Size(175, 51);
             this.btnFuncionarios.TabIndex = 3;
             this.btnFuncionarios.Text = "Funcionarios";
-            this.btnFuncionarios.UseVisualStyleBackColor = true;
+            this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
             this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
             // 
             // btnVeiculos
@@ -117,15 +109,18 @@
             this.btnVeiculos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVeiculos.FlatAppearance.BorderSize = 0;
             this.btnVeiculos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnVeiculos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnVeiculos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.btnVeiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVeiculos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVeiculos.Location = new System.Drawing.Point(8, 77);
+            this.btnVeiculos.ForeColor = System.Drawing.Color.White;
+            this.btnVeiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVeiculos.Location = new System.Drawing.Point(8, 134);
             this.btnVeiculos.Name = "btnVeiculos";
             this.btnVeiculos.Size = new System.Drawing.Size(175, 51);
             this.btnVeiculos.TabIndex = 2;
             this.btnVeiculos.Text = "Veiculos";
-            this.btnVeiculos.UseVisualStyleBackColor = true;
+            this.btnVeiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVeiculos.UseVisualStyleBackColor = false;
             this.btnVeiculos.Click += new System.EventHandler(this.btnVeiculos_Click);
             // 
             // btnPagamentos
@@ -134,15 +129,18 @@
             this.btnPagamentos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPagamentos.FlatAppearance.BorderSize = 0;
             this.btnPagamentos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPagamentos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnPagamentos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.btnPagamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagamentos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagamentos.Location = new System.Drawing.Point(8, 134);
+            this.btnPagamentos.ForeColor = System.Drawing.Color.White;
+            this.btnPagamentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagamentos.Location = new System.Drawing.Point(9, 191);
             this.btnPagamentos.Name = "btnPagamentos";
             this.btnPagamentos.Size = new System.Drawing.Size(175, 51);
             this.btnPagamentos.TabIndex = 1;
             this.btnPagamentos.Text = "Pagamentos";
-            this.btnPagamentos.UseVisualStyleBackColor = true;
+            this.btnPagamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagamentos.UseVisualStyleBackColor = false;
             // 
             // btnEmpresa
             // 
@@ -150,42 +148,118 @@
             this.btnEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpresa.FlatAppearance.BorderSize = 0;
             this.btnEmpresa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnEmpresa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnEmpresa.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.btnEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpresa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpresa.ForeColor = System.Drawing.Color.White;
+            this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpresa.Location = new System.Drawing.Point(8, 20);
             this.btnEmpresa.Name = "btnEmpresa";
             this.btnEmpresa.Size = new System.Drawing.Size(175, 51);
             this.btnEmpresa.TabIndex = 0;
             this.btnEmpresa.Text = "Empresas";
-            this.btnEmpresa.UseVisualStyleBackColor = true;
+            this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpresa.UseVisualStyleBackColor = false;
             this.btnEmpresa.Click += new System.EventHandler(this.btnEmpresa_Click);
             // 
             // TopPanel
             // 
-            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TopPanel.Controls.Add(this.label1);
-            this.TopPanel.Location = new System.Drawing.Point(190, 36);
+            this.TopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TopPanel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.TopPanel.Controls.Add(this.lbdata);
+            this.TopPanel.Controls.Add(this.lbhora);
+            this.TopPanel.Controls.Add(this.button1);
+            this.TopPanel.Controls.Add(this.pictureBox1);
+            this.TopPanel.Controls.Add(this.lbAcesso);
+            this.TopPanel.Controls.Add(this.lbUsuario);
+            this.TopPanel.Location = new System.Drawing.Point(190, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(1175, 60);
+            this.TopPanel.Size = new System.Drawing.Size(1176, 95);
             this.TopPanel.TabIndex = 2;
             // 
-            // label1
+            // lbdata
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario: Administrador";
+            this.lbdata.AutoSize = true;
+            this.lbdata.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdata.ForeColor = System.Drawing.Color.White;
+            this.lbdata.Location = new System.Drawing.Point(9, 15);
+            this.lbdata.Name = "lbdata";
+            this.lbdata.Size = new System.Drawing.Size(68, 30);
+            this.lbdata.TabIndex = 5;
+            this.lbdata.Text = "label1";
+            // 
+            // lbhora
+            // 
+            this.lbhora.AutoSize = true;
+            this.lbhora.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbhora.ForeColor = System.Drawing.Color.White;
+            this.lbhora.Location = new System.Drawing.Point(9, 46);
+            this.lbhora.Name = "lbhora";
+            this.lbhora.Size = new System.Drawing.Size(63, 25);
+            this.lbhora.TabIndex = 4;
+            this.lbhora.Text = "label1";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(949, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sair";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Location = new System.Drawing.Point(1048, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 78);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbAcesso
+            // 
+            this.lbAcesso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAcesso.AutoSize = true;
+            this.lbAcesso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAcesso.ForeColor = System.Drawing.Color.White;
+            this.lbAcesso.Location = new System.Drawing.Point(851, 40);
+            this.lbAcesso.Name = "lbAcesso";
+            this.lbAcesso.Size = new System.Drawing.Size(191, 17);
+            this.lbAcesso.TabIndex = 1;
+            this.lbAcesso.Text = "Nivel de Acesso: Administrador";
+            // 
+            // lbUsuario
+            // 
+            this.lbUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuario.ForeColor = System.Drawing.Color.White;
+            this.lbUsuario.Location = new System.Drawing.Point(914, 11);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(128, 25);
+            this.lbUsuario.TabIndex = 0;
+            this.lbUsuario.Text = "Usuario: Teste";
             // 
             // Container
             // 
+            this.Container.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Container.Location = new System.Drawing.Point(190, 95);
             this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(1175, 673);
+            this.Container.Size = new System.Drawing.Size(1176, 673);
             this.Container.TabIndex = 3;
+            // 
+            // relogio
+            // 
+            this.relogio.Enabled = true;
+            this.relogio.Tick += new System.EventHandler(this.relogio_Tick);
             // 
             // Dashboard
             // 
@@ -196,34 +270,34 @@
             this.Controls.Add(this.Container);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.MenuPanel);
-            this.Controls.Add(this.HeaderPanel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.HeaderPanel.ResumeLayout(false);
-            this.HeaderPanel.PerformLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MenuPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel HeaderPanel;
-        private System.Windows.Forms.Label HeaderLabel;
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Button btnRelatorios;
         private System.Windows.Forms.Button btnFuncionarios;
         private System.Windows.Forms.Button btnVeiculos;
         private System.Windows.Forms.Button btnPagamentos;
         private System.Windows.Forms.Panel TopPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Panel Container;
         private System.Windows.Forms.Button btnEmpresa;
+        private System.Windows.Forms.Label lbAcesso;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbhora;
+        private System.Windows.Forms.Timer relogio;
+        private System.Windows.Forms.Label lbdata;
     }
 }
 

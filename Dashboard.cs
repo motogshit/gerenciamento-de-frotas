@@ -27,9 +27,6 @@ namespace sistemasfrotas
             {
                 EmpresaView.Instance.BringToFront();
             }
-
-            cadastroFuncionarios form = new cadastroFuncionarios();
-            form.Show();
         }
 
         private void btnEmpresa_Click(object sender, EventArgs e)
@@ -72,6 +69,13 @@ namespace sistemasfrotas
             {
                 FuncionariosView.Instance.BringToFront();
             }
+        }
+
+        private void relogio_Tick(object sender, EventArgs e)
+        {
+
+            lbhora.Text = DateTime.Now.ToLongTimeString();
+            lbdata.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

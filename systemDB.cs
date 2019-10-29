@@ -12,8 +12,10 @@ namespace sistemasfrotas
         {
         }
 
+        public virtual DbSet<alugados> alugados { get; set; }
         public virtual DbSet<empresas> empresas { get; set; }
         public virtual DbSet<funcionarios> funcionarios { get; set; }
+        public virtual DbSet<veiculos> veiculos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

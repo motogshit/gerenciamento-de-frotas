@@ -17,3 +17,4 @@ C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.CadastroEmpres
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.VeiculosView.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroFuncionarios.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.FuncionariosView.resources
+C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroVeiculos.resources

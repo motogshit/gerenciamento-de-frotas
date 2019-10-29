@@ -15,6 +15,9 @@ namespace sistemasfrotas.Views
     {
         private static FuncionariosView _instance;
 
+        private systemDB db = new systemDB();
+
+        private funcionarios empregados = new funcionarios();
         public static FuncionariosView Instance
         {
             get
@@ -34,29 +37,42 @@ namespace sistemasfrotas.Views
         {
             InitializeComponent();
 
-            //Personalização do DataGridView
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGridView1.BackgroundColor = Color.White;
+            ////Personalização do DataGridView
+            ////Personalização do DataGridView
+            //dataGridView1.BorderStyle = BorderStyle.None;
+            //dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            //dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            //dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            //dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            //dataGridView1.BackgroundColor = Color.White;
 
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            //dataGridView1.EnableHeadersVisualStyles = false;
+            //dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            //dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             //Gatilho para carregar informações no DataGridView
-            PopularGrid();
+            PopularGrid(empregados);
+            popularBox();
 
         }
-        void PopularGrid()
+        void PopularGrid(funcionarios f)
         {
-            using(systemDB db = new systemDB())
+            /* Motivo para ter uma instancia de conexão isolada para a atualização do DataGrid...
+               Por algum motivo após atualizar uma informação na tabela o comando db.funcionarios.ToList() não estava me retornando uma tabela atualizada
+               por este motivo existe uma conexão isolada em todos os métodos popularGrid*/
+            using (systemDB updater = new systemDB())
             {
-                dataGridView1.DataSource = db.funcionarios.ToList();
+                if (checkBox1.CheckState == CheckState.Checked)
+                {
+                    dataGridView1.DataSource = updater.funcionarios.ToList();
+                }
+                else
+                {
+                    dataGridView1.DataSource = updater.funcionarios.Where(x => x.CNPJ_Empresa == f.CNPJ_Empresa).ToList();
+                }
             }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,7 +85,14 @@ namespace sistemasfrotas.Views
 
                 cadastroFuncionarios form = new cadastroFuncionarios(fun, "update");
 
-                
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    PopularGrid(empregados);
+                }
+                else
+                {
+                    PopularGrid(empregados); 
+                }
             }
         }
 
@@ -78,11 +101,11 @@ namespace sistemasfrotas.Views
             cadastroFuncionarios form = new cadastroFuncionarios();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid();
+                PopularGrid(empregados);
             }
             else
             {
-                PopularGrid();
+                PopularGrid(empregados);
             }
 
         }
@@ -98,9 +121,40 @@ namespace sistemasfrotas.Views
                 {
                     fun.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
                     MessageBox.Show(rmv.removerFuncionario(fun), "Aviso de remoção de registro", MessageBoxButtons.OK);
-                    PopularGrid();
+                    PopularGrid(empregados);
                 }
             }
+        }
+
+        void popularBox()
+        {
+            comboBox1.ValueMember = "CNPJ";
+
+            comboBox1.DisplayMember = "Razao";
+            
+            comboBox1.DataSource = db.empresas.ToList();
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked)
+            {
+                comboBox1.Enabled = false;
+                empregados.CNPJ_Empresa = "";
+                PopularGrid(empregados);
+            }
+            else
+            {
+                comboBox1.Enabled = true;
+                empregados.CNPJ_Empresa = comboBox1.SelectedValue.ToString();
+                PopularGrid(empregados);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
         }
     }
 }

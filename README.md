@@ -12,8 +12,7 @@ O que está em desenvolvimento no momento?
 - Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
     - já foi desenvolvido o banco de dados
     - Cadastramento de veiculos e atualização das informações dos veiculos está funcionando
-    - Falta o aluguel e devolução dos veiculos
-    - Falta desenvolver a integração com o programa
+    - Aluguel de veiculos está funcionando
 
 - Observações 
     - Alterar a tabela de alugados na coluna Devolvido_em de NOT NULL para NULL, pois a coluna só deve ser preenchida depois dias após a criação do registro e não no momento em que o registro foi criado.
@@ -42,5 +41,8 @@ O que há de novo?
 - 29/10/2019
 - Já é possivel cadastrar e editar veiculos no banco de dados
 - Alteração no design do programa.
+
+- 30/10/2019
+- Adição do Padrão MVC para melhor leitura do código.
 
 Prazo para finalizar 26 de Novembro de 2019

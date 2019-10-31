@@ -1,4 +1,4 @@
-namespace sistemasfrotas
+namespace sistemasfrotas.Model
 {
     using System;
     using System.Collections.Generic;
@@ -6,51 +6,57 @@ namespace sistemasfrotas
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class veiculos
+    public partial class funcionarios
     {
         public int ID { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Modelo { get; set; }
+        public string Nome { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Marca { get; set; }
+        public string Cargo { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Ano { get; set; }
+        public string CPF { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Placa_Veiculo { get; set; }
+        public string CHN { get; set; }
+
+        [StringLength(150)]
+        public string Telefone { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Numero_chassi { get; set; }
+        public string Rua { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Km_Inicial { get; set; }
+        public string Bairro { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Km_Atual { get; set; }
+        public string Cidade { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string empresa { get; set; }
+        public string Estado { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string cnpj { get; set; }
+        public string Numero_da_casa { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Status { get; set; }
+        public string Numero_Cracha { get; set; }
 
-        [DataType("DATETIME")]
+        [Required]
+        [StringLength(150)]
+        public string CNPJ_Empresa { get; set; }
+
         public DateTime Adicionado_em { get; set; }
     }
 }

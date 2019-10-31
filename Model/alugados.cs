@@ -1,4 +1,4 @@
-namespace sistemasfrotas
+namespace sistemasfrotas.Model
 {
     using System;
     using System.Collections.Generic;
@@ -16,9 +16,7 @@ namespace sistemasfrotas
         [StringLength(150)]
         public string Placa_Veiculo { get; set; }
 
-        [Required]
-        [StringLength(150)]
-        public string Codigo_funcionario { get; set; }
+        public int Codigo_funcionario { get; set; }
 
         [Required]
         [StringLength(150)]
@@ -28,7 +26,6 @@ namespace sistemasfrotas
         [StringLength(150)]
         public string Km_Inicial { get; set; }
 
-        [Required]
         [StringLength(150)]
         public string Km_Entregue { get; set; }
 
@@ -36,10 +33,8 @@ namespace sistemasfrotas
         [StringLength(150)]
         public string status { get; set; }
 
-        [DataType("DATETIME")]
         public DateTime Alugado_em { get; set; }
 
-        [DataType("DATETIME")]
-        public DateTime Devolvido_em { get; set; }
+        public DateTime? Devolvido_em { get; set; }
     }
 }

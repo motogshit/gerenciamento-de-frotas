@@ -18,3 +18,4 @@ C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.VeiculosView.r
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroFuncionarios.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.FuncionariosView.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroVeiculos.resources
+C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.alugarVeiculo.resources

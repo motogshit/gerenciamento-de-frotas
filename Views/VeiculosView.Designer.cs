@@ -37,8 +37,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbEmpresas = new System.Windows.Forms.ComboBox();
-            this.btRemove = new System.Windows.Forms.Button();
+            this.btAluga = new System.Windows.Forms.Button();
             this.btCadastra = new System.Windows.Forms.Button();
+            this.btDevolve = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.Crimson;
-            this.checkBox1.Location = new System.Drawing.Point(303, 636);
+            this.checkBox1.Location = new System.Drawing.Point(479, 636);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(197, 25);
             this.checkBox1.TabIndex = 57;
@@ -165,28 +166,31 @@
             this.cbEmpresas.TabIndex = 60;
             this.cbEmpresas.SelectedIndexChanged += new System.EventHandler(this.setter);
             // 
-            // btRemove
+            // btAluga
             // 
-            this.btRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btRemove.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btRemove.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
-            this.btRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRemove.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRemove.ForeColor = System.Drawing.Color.White;
-            this.btRemove.Location = new System.Drawing.Point(163, 624);
-            this.btRemove.Name = "btRemove";
-            this.btRemove.Size = new System.Drawing.Size(134, 37);
-            this.btRemove.TabIndex = 62;
-            this.btRemove.Text = "Remover";
-            this.btRemove.UseVisualStyleBackColor = false;
+            this.btAluga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btAluga.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btAluga.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btAluga.FlatAppearance.BorderSize = 0;
+            this.btAluga.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btAluga.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btAluga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAluga.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAluga.ForeColor = System.Drawing.Color.White;
+            this.btAluga.Location = new System.Drawing.Point(163, 624);
+            this.btAluga.Name = "btAluga";
+            this.btAluga.Size = new System.Drawing.Size(134, 37);
+            this.btAluga.TabIndex = 62;
+            this.btAluga.Text = "Alugar Veiculo";
+            this.btAluga.UseVisualStyleBackColor = false;
+            this.btAluga.Click += new System.EventHandler(this.btAluga_Click);
             // 
             // btCadastra
             // 
             this.btCadastra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btCadastra.BackColor = System.Drawing.SystemColors.Highlight;
             this.btCadastra.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btCadastra.FlatAppearance.BorderSize = 0;
             this.btCadastra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btCadastra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btCadastra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -200,12 +204,32 @@
             this.btCadastra.UseVisualStyleBackColor = false;
             this.btCadastra.Click += new System.EventHandler(this.btCadastra_Click);
             // 
+            // btDevolve
+            // 
+            this.btDevolve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btDevolve.BackColor = System.Drawing.Color.Navy;
+            this.btDevolve.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btDevolve.FlatAppearance.BorderSize = 0;
+            this.btDevolve.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btDevolve.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btDevolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDevolve.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDevolve.ForeColor = System.Drawing.Color.White;
+            this.btDevolve.Location = new System.Drawing.Point(303, 624);
+            this.btDevolve.Name = "btDevolve";
+            this.btDevolve.Size = new System.Drawing.Size(134, 37);
+            this.btDevolve.TabIndex = 63;
+            this.btDevolve.Text = "Alugar Veiculo";
+            this.btDevolve.UseVisualStyleBackColor = false;
+            this.btDevolve.Click += new System.EventHandler(this.btDevolve_Click);
+            // 
             // VeiculosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Controls.Add(this.btRemove);
+            this.Controls.Add(this.btDevolve);
+            this.Controls.Add(this.btAluga);
             this.Controls.Add(this.btCadastra);
             this.Controls.Add(this.cbEmpresas);
             this.Controls.Add(this.dataGridView1);
@@ -233,7 +257,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cbEmpresas;
-        private System.Windows.Forms.Button btRemove;
+        private System.Windows.Forms.Button btAluga;
         private System.Windows.Forms.Button btCadastra;
+        private System.Windows.Forms.Button btDevolve;
     }
 }

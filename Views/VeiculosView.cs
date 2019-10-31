@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using sistemasfrotas.Model;
+using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
 {
@@ -30,30 +32,29 @@ namespace sistemasfrotas.Views
             }
         }
 
-        veiculos vc = new veiculos();
-
-        systemDB db = new systemDB();
+        private empresaController _empresa = new empresaController();
+        private veiculosController _controller = new veiculosController();
 
         public VeiculosView()
         {
             InitializeComponent();
-            PopularGrid(vc);
             popularBox();
+            PopularGrid(cbEmpresas.SelectedValue.ToString());
+            
         }
 
-        void PopularGrid(veiculos v)
+        void PopularGrid(string s)
         {
-            using(systemDB updater = new systemDB())
-            {
+            veiculosController __controller = new veiculosController();
                 if(checkBox1.CheckState == CheckState.Checked)
                 {
-                    dataGridView1.DataSource = updater.veiculos.ToList();
+                    dataGridView1.DataSource = __controller.ListarTodos();
                 }
                 else
                 {
-                    dataGridView1.DataSource = updater.veiculos.Where(x => x.cnpj == v.cnpj).ToList();
+                    dataGridView1.DataSource = __controller.ListarPorEmpresa(s);
                 }
-            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,17 +62,15 @@ namespace sistemasfrotas.Views
            
             if (dataGridView1.CurrentRow.Index != -1)
             {
-                vc.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-
-                cadastroVeiculos form = new cadastroVeiculos(vc, "update");
+                cadastroVeiculos form = new cadastroVeiculos(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "update");
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    PopularGrid(vc);
+                    PopularGrid(cbEmpresas.SelectedValue.ToString());
                 }
                 else
                 {
-                    PopularGrid(vc);
+                    PopularGrid(cbEmpresas.SelectedValue.ToString());
                 }
             }
         }
@@ -81,11 +80,11 @@ namespace sistemasfrotas.Views
             cadastroVeiculos form = new cadastroVeiculos();
             if(form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid(vc);
+                PopularGrid(cbEmpresas.SelectedValue.ToString());
             }
             else
             {
-                PopularGrid(vc);
+                PopularGrid(cbEmpresas.SelectedValue.ToString());
             }
 
         }
@@ -95,14 +94,12 @@ namespace sistemasfrotas.Views
             if(checkBox1.CheckState == CheckState.Checked)
             {
                 cbEmpresas.Enabled = false;
-                vc.cnpj = "";
-                PopularGrid(vc);
+                PopularGrid("");
             }
             else
             {
                 cbEmpresas.Enabled = true;
-                vc.cnpj = cbEmpresas.SelectedValue.ToString();
-                PopularGrid(vc);
+                PopularGrid(cbEmpresas.SelectedValue.ToString());
             }
         }
 
@@ -112,12 +109,49 @@ namespace sistemasfrotas.Views
 
             cbEmpresas.DisplayMember = "Razao";
 
-            cbEmpresas.DataSource = db.empresas.ToList();
+            cbEmpresas.DataSource = _empresa.ListarTodos();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             setter(sender, e);
+        }
+
+        private void btAluga_Click(object sender, EventArgs e)
+        {
+            alugarVeiculo form = new alugarVeiculo();
+
+            if(form.ShowDialog() == DialogResult.OK)
+            {
+                PopularGrid(cbEmpresas.SelectedValue.ToString());
+            }
+            else
+            {
+                PopularGrid(cbEmpresas.SelectedValue.ToString());
+            }
+        }
+
+        private void btDevolve_Click(object sender, EventArgs e)
+        {
+            
+
+            if (dataGridView1.CurrentRow.Index != -1)
+            {
+                alugarVeiculo form = new alugarVeiculo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "devolve");
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    PopularGrid(cbEmpresas.SelectedValue.ToString());
+                }
+                else
+                {
+                    PopularGrid(cbEmpresas.SelectedValue.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um veiculo no com status em uso antes de devolver");
+            }
+            
         }
     }
 }

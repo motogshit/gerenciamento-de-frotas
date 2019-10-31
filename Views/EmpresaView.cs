@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Controller;
+using sistemasfrotas.Model;
 namespace sistemasfrotas.Views
 {
     public partial class EmpresaView : UserControl
@@ -40,11 +41,8 @@ namespace sistemasfrotas.Views
         public void PopularGrid()
         {
             //Instancia da conexão
-            using (systemDB db = new systemDB())
-            {
-                //Busca das informações no banco de dados sem usar parametros (Carrega todos os registros da tabela)
-                dataGridView1.DataSource = db.empresas.ToList();
-            }
+            empresaController c = new empresaController();
+            dataGridView1.DataSource = c.ListarTodos();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,17 +64,11 @@ namespace sistemasfrotas.Views
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Carrega o objeto empresa
-            empresas c = new empresas();
             //Seleciona a linha no DataGridView
             if (dataGridView1.CurrentRow.Index != -1)
             {
-                //Pega o id daquela linha e armazena no objeto empresa
-                c.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-                //PEga a informação se a empresa é uma filial e adiciona no objeto empresa
-                c.Filial = Convert.ToString(dataGridView1.CurrentRow.Cells["Filial"].Value);
-
                 //Chama o construtor do form de cadastro de empresas com construtor personalizado para receber um objeto empresa como argumento
-                CadastroEmpresa form = new CadastroEmpresa(c, "update");
+                CadastroEmpresa form = new CadastroEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "update");
                 //Independente do resultado atualiza o DataGridView
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -91,14 +83,12 @@ namespace sistemasfrotas.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            empresas c = new empresas();
-            RemoverController rmv = new RemoverController();
             if (MessageBox.Show("Você deseja remover este registro?", "Aviso de exclusão de dados", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (dataGridView1.CurrentRow.Index != -1)
                 {
-                    c.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-                    rmv.removerRegistro(c);
+                    empresaController c = new empresaController();
+                    c.RemoverEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value));
                     MessageBox.Show("Registro Removido com sucesso!", "Alerta de remoção de dados", MessageBoxButtons.OK);
                     PopularGrid();                                         
                 }

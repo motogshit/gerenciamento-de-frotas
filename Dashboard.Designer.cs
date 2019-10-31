@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MenuPanel = new System.Windows.Forms.Panel();
-            this.btnRelatorios = new System.Windows.Forms.Button();
             this.btnFuncionarios = new System.Windows.Forms.Button();
             this.btnVeiculos = new System.Windows.Forms.Button();
             this.btnPagamentos = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@
             this.MenuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuPanel.BackColor = System.Drawing.Color.MidnightBlue;
-            this.MenuPanel.Controls.Add(this.btnRelatorios);
             this.MenuPanel.Controls.Add(this.btnFuncionarios);
             this.MenuPanel.Controls.Add(this.btnVeiculos);
             this.MenuPanel.Controls.Add(this.btnPagamentos);
@@ -63,25 +61,6 @@
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(190, 768);
             this.MenuPanel.TabIndex = 1;
-            // 
-            // btnRelatorios
-            // 
-            this.btnRelatorios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRelatorios.FlatAppearance.BorderSize = 0;
-            this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelatorios.ForeColor = System.Drawing.Color.White;
-            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.Location = new System.Drawing.Point(8, 248);
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(175, 51);
-            this.btnRelatorios.TabIndex = 4;
-            this.btnRelatorios.Text = "Relatorios";
-            this.btnRelatorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.UseVisualStyleBackColor = false;
             // 
             // btnFuncionarios
             // 
@@ -284,7 +263,6 @@
 
         #endregion
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button btnRelatorios;
         private System.Windows.Forms.Button btnFuncionarios;
         private System.Windows.Forms.Button btnVeiculos;
         private System.Windows.Forms.Button btnPagamentos;

@@ -1,4 +1,4 @@
-namespace sistemasfrotas
+namespace sistemasfrotas.Model
 {
     using System;
     using System.Collections.Generic;
@@ -6,28 +6,45 @@ namespace sistemasfrotas
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class funcionarios
+    public partial class empresas
     {
+        [Key]
         public int ID { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Nome { get; set; }
+        public string Razao { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Cargo { get; set; }
+        public string Fantasia { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string CPF { get; set; }
+        public string CNPJ { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string CHN { get; set; }
+        public string Telefone1 { get; set; }
 
         [StringLength(150)]
-        public string Telefone { get; set; }
+        public string Telefone2 { get; set; }
+
+        [Required]
+        [StringLength(150)]
+        public string Email { get; set; }
+
+        [StringLength(150)]
+        public string Website { get; set; }
+
+        [StringLength(150)]
+        public string Filial { get; set; }
+
+        [StringLength(150)]
+        public string Filial_Numero { get; set; }
+
+        [StringLength(150)]
+        public string CNPJ_Sede { get; set; }
 
         [Required]
         [StringLength(150)]
@@ -47,17 +64,13 @@ namespace sistemasfrotas
 
         [Required]
         [StringLength(150)]
-        public string Numero_da_casa { get; set; }
+        public string Numero { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Numero_Cracha { get; set; }
+        public string CEP { get; set; }
 
-        [Required]
-        [StringLength(150)]
-        public string CNPJ_Empresa { get; set; }
-
-        [DataType("DATETIME")]
         public DateTime Adicionado_em { get; set; }
+
     }
 }

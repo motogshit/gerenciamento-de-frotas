@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using sistemasfrotas.Model;
+using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
 {
@@ -15,35 +17,37 @@ namespace sistemasfrotas.Views
         private string _state { get; set; }
         private int _id { get; set; }
 
-        private systemDB db = new systemDB();
+        private empresaController _controller = new empresaController();
+
         public CadastroEmpresa()
         {
             InitializeComponent();
             clear();
         }
         
-        public CadastroEmpresa(empresas edit, string state)
+        public CadastroEmpresa(int id, string state)
         {
             InitializeComponent();
             clear();
             _state = state;
-            _id = edit.ID;
-            editar(edit);
+            _id = id;
+            editar(id);
         }
 
-        private void editar(empresas informaçoes)
+        private void editar(int id)
         {
-                if(informaçoes.Filial == "Sim")
-                {
-                    checkBox1.Checked = true;
-                }
-                informaçoes = db.empresas.Where(x => x.ID == informaçoes.ID).FirstOrDefault();
-            
+            empresas informaçoes;
+            informaçoes = _controller.BuscarPorId(id);
+            if (informaçoes.Filial == "Sim")
+            {
+                checkBox1.Checked = true;
+            }
+
             txRazao.Text = informaçoes.Razao;
             txFantasia.Text = informaçoes.Fantasia;
             txCNPJ.Text = informaçoes.CNPJ;
             txTel1.Text = informaçoes.Telefone1;
-            txTel2.Text = informaçoes.Telefone2; 
+            txTel2.Text = informaçoes.Telefone2;
             txEmail.Text = informaçoes.Email;
             txSite.Text = informaçoes.Website;
             txFilial.Text = informaçoes.Filial_Numero;
@@ -54,81 +58,113 @@ namespace sistemasfrotas.Views
             txEstado.Text = informaçoes.Estado;
             txNumero.Text = informaçoes.Numero;
             txCEP.Text = informaçoes.CEP;
+
         }
 
         private void btSave_Click(object sender, EventArgs coco)
         {
-            empresas emp = new empresas();
 
             if(_state == "update")
             {
-                    empresas c = db.empresas.First(x => x.ID == _id);
 
-                    c.Razao = txRazao.Text.Trim();
-                    c.Fantasia = txFantasia.Text.Trim();
-                    c.CNPJ = txCNPJ.Text.Trim();
-                    c.Telefone1 = txTel1.Text.Trim();
-                    c.Telefone2 = txTel2.Text.Trim();
-                    c.Email = txEmail.Text.Trim();
-                    c.Website = txSite.Text.Trim();
-                    c.Filial_Numero = txFilial.Text.Trim();
-                    c.CNPJ_Sede = txSede.Text.Trim();
-                    c.Rua = txRua.Text.Trim();
-                    c.Bairro = txBairro.Text.Trim();
-                    c.Cidade = txCidade.Text.Trim();
-                    c.Estado = txEstado.Text.Trim();
-                    c.Numero = txNumero.Text.Trim();
-                    c.CEP = txCEP.Text.Trim();
-
-                    db.SaveChanges();
-            }
-            else
-            {
-                emp.Razao = txRazao.Text.Trim();
-                emp.Fantasia = txFantasia.Text.Trim();
-                emp.CNPJ = txCNPJ.Text.Trim();
-                emp.Telefone1 = txTel1.Text.Trim();
-                emp.Telefone2 = txTel2.Text.Trim();
-                emp.Email = txEmail.Text.Trim();
-                emp.Website = txSite.Text.Trim();
-                emp.Filial_Numero = txFilial.Text.Trim();
-                emp.CNPJ_Sede = txSede.Text.Trim();
-                emp.Rua = txRua.Text.Trim();
-                emp.Bairro = txBairro.Text.Trim();
-                emp.Cidade = txCidade.Text.Trim();
-                emp.Estado = txEstado.Text.Trim();
-                emp.Numero = txNumero.Text.Trim();
-                emp.CEP = txCEP.Text.Trim();
-
-                if (checkBox1.CheckState == CheckState.Checked)
+                if(checkBox1.CheckState == CheckState.Checked)
                 {
-                    emp.Filial = "Sim".Trim();
-
-                    if (db.empresas.Where(x => x.CNPJ_Sede == emp.CNPJ_Sede).FirstOrDefault() != null)
+                    _controller.AtualizarEmpresa(new empresas
                     {
-                        MessageBox.Show("A empresa sede existe");
-                        if (db.empresas.Where(x => x.CNPJ == emp.CNPJ).FirstOrDefault() == null)
-                        {
-                            db.empresas.Add(emp);
-                            db.SaveChanges();
-                        }
-                        else
-                        {
-                            db.Entry(emp).State = System.Data.Entity.EntityState.Modified;
-                            db.SaveChanges();
-                        }
-
-                    }
-                    clear();
+                        ID = _id,
+                        Razao = txRazao.Text.Trim(),
+                        Fantasia = txFantasia.Text.Trim(),
+                        CNPJ = txCNPJ.Text.Trim(),
+                        Telefone1 = txTel1.Text.Trim(),
+                        Telefone2 = txTel2.Text.Trim(),
+                        Email = txEmail.Text.Trim(),
+                        Website = txSite.Text.Trim(),
+                        Filial_Numero = txFilial.Text.Trim(),
+                        CNPJ_Sede = txSede.Text.Trim(),
+                        Rua = txRua.Text.Trim(),
+                        Bairro = txBairro.Text.Trim(),
+                        Cidade = txCidade.Text.Trim(),
+                        Estado = txEstado.Text.Trim(),
+                        Numero = txNumero.Text.Trim(),
+                        CEP = txCEP.Text.Trim(),
+                        Filial = "Sim".Trim(),
+                        Adicionado_em = DateTime.Now
+                    });
                 }
                 else
                 {
-                    emp.Filial = "Não".Trim();
-                    emp.CNPJ_Sede = "".Trim();
-                    emp.Filial_Numero = "".Trim();
-                    emp.Adicionado_em = DateTime.Now;
-                    db.empresas.Add(emp);
-                    db.SaveChanges();
+                    _controller.AtualizarEmpresa(new empresas
+                    {
+                        ID = _id,
+                        Razao = txRazao.Text.Trim(),
+                        Fantasia = txFantasia.Text.Trim(),
+                        CNPJ = txCNPJ.Text.Trim(),
+                        Telefone1 = txTel1.Text.Trim(),
+                        Telefone2 = txTel2.Text.Trim(),
+                        Email = txEmail.Text.Trim(),
+                        Website = txSite.Text.Trim(),
+                        Filial_Numero = txFilial.Text.Trim(),
+                        CNPJ_Sede = txSede.Text.Trim(),
+                        Rua = txRua.Text.Trim(),
+                        Bairro = txBairro.Text.Trim(),
+                        Cidade = txCidade.Text.Trim(),
+                        Estado = txEstado.Text.Trim(),
+                        Numero = txNumero.Text.Trim(),
+                        CEP = txCEP.Text.Trim(),
+                        Filial = "Não".Trim(),
+                        Adicionado_em = DateTime.Now
+                    });
+                }
+               
+            }
+            else
+             {
+                if (checkBox1.CheckState == CheckState.Checked)
+                {
+                    _controller.Novo(new empresas
+                    {
+                        Razao = txRazao.Text.Trim(),
+                        Fantasia = txFantasia.Text.Trim(),
+                        CNPJ = txCNPJ.Text.Trim(),
+                        Telefone1 = txTel1.Text.Trim(),
+                        Telefone2 = txTel2.Text.Trim(),
+                        Email = txEmail.Text.Trim(),
+                        Website = txSite.Text.Trim(),
+                        Filial_Numero = txFilial.Text.Trim(),
+                        CNPJ_Sede = txSede.Text.Trim(),
+                        Rua = txRua.Text.Trim(),
+                        Bairro = txBairro.Text.Trim(),
+                        Cidade = txCidade.Text.Trim(),
+                        Estado = txEstado.Text.Trim(),
+                        Numero = txNumero.Text.Trim(),
+                        CEP = txCEP.Text.Trim(),
+                        Filial = "Não".Trim(),
+                        Adicionado_em = DateTime.Now
+                    });
+                }
+                else
+                {
+                    _controller.Novo(new empresas
+                    {
+                        Razao = txRazao.Text.Trim(),
+                        Fantasia = txFantasia.Text.Trim(),
+                        CNPJ = txCNPJ.Text.Trim(),
+                        Telefone1 = txTel1.Text.Trim(),
+                        Telefone2 = txTel2.Text.Trim(),
+                        Email = txEmail.Text.Trim(),
+                        Website = txSite.Text.Trim(),
+                        Filial_Numero = "".Trim(),
+                        CNPJ_Sede = "".Trim(),
+                        Rua = txRua.Text.Trim(),
+                        Bairro = txBairro.Text.Trim(),
+                        Cidade = txCidade.Text.Trim(),
+                        Estado = txEstado.Text.Trim(),
+                        Numero = txNumero.Text.Trim(),
+                        CEP = txCEP.Text.Trim(),
+                        Filial = "Não".Trim(),
+                        Adicionado_em = DateTime.Now
+                    });
+
                 }
             }
         }

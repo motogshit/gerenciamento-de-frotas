@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,7 +65,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
-            this.atualizaEmpresas = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // panel1
@@ -440,11 +438,6 @@
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // atualizaEmpresas
-            // 
-            this.atualizaEmpresas.Enabled = true;
-            this.atualizaEmpresas.Tick += new System.EventHandler(this.atualizaEmpresas_Tick);
-            // 
             // cadastroFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -541,6 +534,5 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.Timer atualizaEmpresas;
     }
 }

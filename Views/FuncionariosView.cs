@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Controller;
+using sistemasfrotas.Model;
 
 namespace sistemasfrotas.Views
 {
@@ -15,9 +16,10 @@ namespace sistemasfrotas.Views
     {
         private static FuncionariosView _instance;
 
-        private systemDB db = new systemDB();
+        private empresaController _empresa = new empresaController();
 
-        private funcionarios empregados = new funcionarios();
+        private funcionarioController _controller = new funcionarioController();
+
         public static FuncionariosView Instance
         {
             get
@@ -36,62 +38,40 @@ namespace sistemasfrotas.Views
         public FuncionariosView()
         {
             InitializeComponent();
-
-            ////Personalização do DataGridView
-            ////Personalização do DataGridView
-            //dataGridView1.BorderStyle = BorderStyle.None;
-            //dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            //dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            //dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            //dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            //dataGridView1.BackgroundColor = Color.White;
-
-            //dataGridView1.EnableHeadersVisualStyles = false;
-            //dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            //dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            //Gatilho para carregar informações no DataGridView
-            PopularGrid(empregados);
             popularBox();
-
+            PopularGrid(comboBox1.SelectedValue.ToString());
         }
-        void PopularGrid(funcionarios f)
+        void PopularGrid(string s)
         {
             /* Motivo para ter uma instancia de conexão isolada para a atualização do DataGrid...
                Por algum motivo após atualizar uma informação na tabela o comando db.funcionarios.ToList() não estava me retornando uma tabela atualizada
                por este motivo existe uma conexão isolada em todos os métodos popularGrid*/
-            using (systemDB updater = new systemDB())
-            {
+
+                funcionarioController updater = new funcionarioController();
                 if (checkBox1.CheckState == CheckState.Checked)
                 {
-                    dataGridView1.DataSource = updater.funcionarios.ToList();
+                    dataGridView1.DataSource = updater.ListarTodos();
                 }
-                else
+                //else
                 {
-                    dataGridView1.DataSource = updater.funcionarios.Where(x => x.CNPJ_Empresa == f.CNPJ_Empresa).ToList();
+                dataGridView1.DataSource = updater.ObterPorEmpresa(comboBox1.SelectedValue.ToString());
                 }
-            }
-
         }
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            funcionarios fun = new funcionarios();
-
             if(dataGridView1.CurrentRow.Index != -1)
             {
-                fun.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-
-                cadastroFuncionarios form = new cadastroFuncionarios(fun, "update");
+                cadastroFuncionarios form = new cadastroFuncionarios(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "update");
 
                 if(form.ShowDialog() == DialogResult.OK)
                 {
-                    PopularGrid(empregados);
+                    PopularGrid(comboBox1.SelectedValue.ToString());
                 }
                 else
                 {
-                    PopularGrid(empregados); 
+                    PopularGrid(comboBox1.SelectedValue.ToString()); 
                 }
             }
         }
@@ -101,27 +81,24 @@ namespace sistemasfrotas.Views
             cadastroFuncionarios form = new cadastroFuncionarios();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid(empregados);
+                PopularGrid(comboBox1.SelectedValue.ToString());
             }
             else
             {
-                PopularGrid(empregados);
+                PopularGrid(comboBox1.SelectedValue.ToString());
             }
 
         }
 
         private void btRemover_Click(object sender, EventArgs e)
         {
-            funcionarios fun = new funcionarios();
-            RemoverController rmv = new RemoverController();
-
             if (MessageBox.Show("Você deseja remover esse funcionario?", "Aviso de remoção de registro",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if(dataGridView1.CurrentRow.Index != -1)
                 {
-                    fun.ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-                    MessageBox.Show(rmv.removerFuncionario(fun), "Aviso de remoção de registro", MessageBoxButtons.OK);
-                    PopularGrid(empregados);
+                    _controller.RemoverFuncionario(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value));
+                    MessageBox.Show("Removido com sucesso!", "Aviso de remoção de registro", MessageBoxButtons.OK);
+                    PopularGrid(comboBox1.SelectedValue.ToString());
                 }
             }
         }
@@ -131,8 +108,8 @@ namespace sistemasfrotas.Views
             comboBox1.ValueMember = "CNPJ";
 
             comboBox1.DisplayMember = "Razao";
-            
-            comboBox1.DataSource = db.empresas.ToList();
+
+            comboBox1.DataSource = _empresa.ListarTodos();
         }
 
 
@@ -141,14 +118,13 @@ namespace sistemasfrotas.Views
             if (checkBox1.CheckState == CheckState.Checked)
             {
                 comboBox1.Enabled = false;
-                empregados.CNPJ_Empresa = "";
-                PopularGrid(empregados);
+                PopularGrid("");
             }
             else
             {
                 comboBox1.Enabled = true;
-                empregados.CNPJ_Empresa = comboBox1.SelectedValue.ToString();
-                PopularGrid(empregados);
+
+                PopularGrid(comboBox1.SelectedValue.ToString());
             }
         }
 
@@ -158,3 +134,4 @@ namespace sistemasfrotas.Views
         }
     }
 }
+

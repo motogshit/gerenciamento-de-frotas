@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using sistemasfrotas.Model;
+using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
 {
@@ -15,7 +17,9 @@ namespace sistemasfrotas.Views
         private string _state { get; set; }
         private int _id { get; set; }
 
-        private systemDB db = new systemDB();
+        private funcionarioController _controller = new funcionarioController();
+        private empresaController _empresa = new empresaController();
+        private DateTime data;
 
         public cadastroFuncionarios()
         {
@@ -25,28 +29,23 @@ namespace sistemasfrotas.Views
 
                 cbEmpresa.DisplayMember = "Razao";
                 
-                cbEmpresa.DataSource = db.empresas.ToList();
+                cbEmpresa.DataSource = _empresa.ListarTodos();
             
         }
 
-        public cadastroFuncionarios(funcionarios edit,string state)
+        public cadastroFuncionarios(int id,string state)
         {
             InitializeComponent();
             clear();
             _state = state;
-            _id = edit.ID;
-            editar(edit);
+            _id = id;
+            editar(id);
         }
 
-        private void editar(funcionarios dados)
+        private void editar(int id)
         {
-            List<empresas> emp = new List<empresas>();
-
-            
-                dados = db.funcionarios.Where(x => x.ID == dados.ID).FirstOrDefault();
-
-
-                emp = db.empresas.Where(x => x.CNPJ == dados.CNPJ_Empresa).ToList();
+            funcionarios dados;
+            dados = _controller.BuscarPorId(id);
             
             txNome.Text = dados.Nome;
             txCargo.Text = dados.Cargo;
@@ -61,59 +60,59 @@ namespace sistemasfrotas.Views
             txCracha.Text = dados.Numero_Cracha;
             cbEmpresa.ValueMember = "CNPJ";
             cbEmpresa.DisplayMember = "Razao";
-            cbEmpresa.DataSource = emp;
+            cbEmpresa.DataSource = _empresa.BuscarPorCNPJ(dados.CNPJ_Empresa);
+            data = dados.Adicionado_em;
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            funcionarios fun = new funcionarios();
-
             if(_state == "update")
             {
-                funcionarios upd = db.funcionarios.First(x => x.ID == _id);
-
-                upd.Nome = txNome.Text.Trim();
-                upd.Cargo = txCargo.Text.Trim();
-                upd.CPF = txCPF.Text.Trim();
-                upd.CHN = txCHN.Text.Trim();
-                upd.Telefone = txTelefone.Text.Trim();
-                upd.Rua = txRua.Text.Trim();
-                upd.Bairro = txBairro.Text.Trim();
-                upd.Cidade = txCidade.Text.Trim();
-                upd.Estado = txEstado.Text.Trim();
-                upd.Numero_da_casa = txCasa.Text.Trim();
-                upd.Numero_Cracha = txCracha.Text.Trim();
-                upd.CNPJ_Empresa = cbEmpresa.SelectedValue.ToString();
-
-                db.SaveChanges();
+                _controller.AtualizarFuncionario(new funcionarios
+                {
+                    ID = _id,
+                    Nome = txNome.Text.Trim(),
+                    Cargo = txCargo.Text.Trim(),
+                    CPF = txCPF.Text.Trim(),
+                    CHN = txCHN.Text.Trim(),
+                    Telefone = txTelefone.Text.Trim(),
+                    Rua = txRua.Text.Trim(),
+                    Bairro = txBairro.Text.Trim(),
+                    Cidade = txCidade.Text.Trim(),
+                    Estado = txEstado.Text.Trim(),
+                    Numero_da_casa = txCasa.Text.Trim(),
+                    Numero_Cracha = txCracha.Text.Trim(),
+                    CNPJ_Empresa = cbEmpresa.SelectedValue.ToString(),
+                    Adicionado_em = data
+                });
+                
             }
             else
             {
-                fun.Nome = txNome.Text.Trim();
-                fun.Cargo = txCargo.Text.Trim();
-                fun.CPF = txCPF.Text.Trim();
-                fun.CHN = txCHN.Text.Trim();
-                fun.Telefone = txTelefone.Text.Trim();
-                fun.Rua = txRua.Text.Trim();
-                fun.Bairro = txBairro.Text.Trim();
-                fun.Cidade = txCidade.Text.Trim();
-                fun.Estado = txEstado.Text.Trim();
-                fun.Numero_da_casa = txCasa.Text.Trim();
-                fun.Numero_Cracha = txCracha.Text.Trim();
-                fun.CNPJ_Empresa = cbEmpresa.SelectedValue.ToString();
-                fun.Adicionado_em = DateTime.Now;
-
-                if (db.funcionarios.Where(x => x.CPF == fun.CPF).FirstOrDefault() == null)
+                if(_controller.LocalizarCPF(txCPF.Text.Trim()) == null)
                 {
-                    db.funcionarios.Add(fun);
-                    db.SaveChanges();
-                    clear();
+                    _controller.Novo(new funcionarios
+                    {
+                        Nome = txNome.Text.Trim(),
+                        Cargo = txCargo.Text.Trim(),
+                        CPF = txCPF.Text.Trim(),
+                        CHN = txCHN.Text.Trim(),
+                        Telefone = txTelefone.Text.Trim(),
+                        Rua = txRua.Text.Trim(),
+                        Bairro = txBairro.Text.Trim(),
+                        Cidade = txCidade.Text.Trim(),
+                        Estado = txEstado.Text.Trim(),
+                        Numero_da_casa = txCasa.Text.Trim(),
+                        Numero_Cracha = txCracha.Text.Trim(),
+                        CNPJ_Empresa = cbEmpresa.SelectedValue.ToString(),
+                        Adicionado_em = DateTime.Now
+                    });
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Este CPF já está cadastrado, verifique o usuario na lista","Erro ao cadastrar", MessageBoxButtons.OK);
+                    MessageBox.Show("Este CPF já está cadastrado");
                 }
-                
             }
         }
 
@@ -125,11 +124,6 @@ namespace sistemasfrotas.Views
         private void button1_Click(object sender, EventArgs e)
         {
             clear();
-        }
-
-        private void atualizaEmpresas_Tick(object sender, EventArgs e)
-        {
-            
         }
     }
 }

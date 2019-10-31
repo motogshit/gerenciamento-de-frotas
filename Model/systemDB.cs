@@ -1,4 +1,4 @@
-namespace sistemasfrotas
+namespace sistemasfrotas.Model
 {
     using System;
     using System.Data.Entity;

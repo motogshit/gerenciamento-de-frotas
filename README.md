@@ -9,14 +9,9 @@ O que está funcionando?
 
 O que está em desenvolvimento no momento?
 
-- Sistema de cadastro, atualização, remoção, aluguel e devolução de veiculos.
-    - já foi desenvolvido o banco de dados
-    - Cadastramento de veiculos e atualização das informações dos veiculos está funcionando
-    - Aluguel de veiculos está funcionando
-
-- Observações 
-    - Alterar a tabela de alugados na coluna Devolvido_em de NOT NULL para NULL, pois a coluna só deve ser preenchida depois dias após a criação do registro e não no momento em que o registro foi criado.
-    - O sistema de cadastrato de veiculos não permitira a remoção de dados por motivos de controle de informações. Por isto não será possivel remover um veiculo do banco de dados pois existem informações que dependem da existencia desse registro. Veiculos que forem "Removidos" na verdade receberão um status de Inativo atraves de uma coluna no banco de dados.
+- Sistema de estatisticas e relatorios
+    - O Repositorio e Controladores já foram desenvolvidos
+    - Já é possivel visualizar estatisticas sobre as empresas com mais funcionarios, Marcas mais usadas, Modelos mais usados, Disponibilidade de veiculos.
 
 
 O que falta fazer?

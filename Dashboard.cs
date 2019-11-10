@@ -17,9 +17,9 @@ namespace sistemasfrotas
         {
             InitializeComponent();
             
-            if (!Container.Controls.Contains(EmpresaView.Instance))
+            if (!Container1.Controls.Contains(EmpresaView.Instance))
             {
-                Container.Controls.Add(EmpresaView.Instance);
+                Container1.Controls.Add(EmpresaView.Instance);
                 EmpresaView.Instance.Dock = DockStyle.Fill;
                 EmpresaView.Instance.BringToFront();
             }
@@ -31,9 +31,9 @@ namespace sistemasfrotas
 
         private void btnEmpresa_Click(object sender, EventArgs e)
         {
-            if (!Container.Controls.Contains(EmpresaView.Instance))
+            if (!Container1.Controls.Contains(EmpresaView.Instance))
             {
-                Container.Controls.Add(EmpresaView.Instance);
+                Container1.Controls.Add(EmpresaView.Instance);
                 EmpresaView.Instance.Dock = DockStyle.Fill;
                 EmpresaView.Instance.BringToFront();
             }
@@ -45,9 +45,9 @@ namespace sistemasfrotas
 
         private void btnVeiculos_Click(object sender, EventArgs e)
         {
-            if (!Container.Controls.Contains(VeiculosView.Instance))
+            if (!Container1.Controls.Contains(VeiculosView.Instance))
             {
-                Container.Controls.Add(VeiculosView.Instance);
+                Container1.Controls.Add(VeiculosView.Instance);
                 VeiculosView.Instance.Dock = DockStyle.Fill;
                 VeiculosView.Instance.BringToFront();
             }
@@ -59,9 +59,9 @@ namespace sistemasfrotas
 
         private void btnFuncionarios_Click(object sender, EventArgs e)
         {
-            if (!Container.Controls.Contains(FuncionariosView.Instance))
+            if (!Container1.Controls.Contains(FuncionariosView.Instance))
             {
-                Container.Controls.Add(FuncionariosView.Instance);
+                Container1.Controls.Add(FuncionariosView.Instance);
                 FuncionariosView.Instance.Dock = DockStyle.Fill;
                 FuncionariosView.Instance.BringToFront();
             }
@@ -76,6 +76,20 @@ namespace sistemasfrotas
 
             lbhora.Text = DateTime.Now.ToLongTimeString();
             lbdata.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!Container1.Controls.Contains(Estatisticas.Instance))
+            {
+                Container1.Controls.Add(Estatisticas.Instance);
+                Estatisticas.Instance.Dock = DockStyle.Fill;
+                Estatisticas.Instance.BringToFront();
+            }
+            else
+            {
+                Estatisticas.Instance.BringToFront();
+            }
         }
     }
 }

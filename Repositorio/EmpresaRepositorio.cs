@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using sistemasfrotas.Model;
 
-namespace sistemasfrotas.Repositorio
+namespace sistemasfrotas
 {
     class EmpresaRepositorio
     {
@@ -19,7 +19,7 @@ namespace sistemasfrotas.Repositorio
         }
         public List<empresas> GetEmpresas()
         {
-            return dBContext.empresas.ToList();
+            return dBContext.empresas.AsNoTracking().ToList(); 
         }
         
         public void NovaEmpresa(empresas emp)
@@ -54,5 +54,26 @@ namespace sistemasfrotas.Repositorio
         {
             return dBContext.empresas.FirstOrDefault(x => x.CNPJ == CNPJ);
         }
+
+        //public List<ContadorVeiculos> Top5()
+        //{
+        //    var dados = dBContext.empresas
+        //        .GroupBy(a => new { a.Razao })
+        //        .Select(b => new { nome_da_empresa = b.Key.Razao, valor = b.Count() })
+        //        .OrderByDescending(c => c.valor)
+        //        .Take(5)
+        //        .ToDictionary(d => d.nome_da_empresa, f => f.valor);
+
+        //    List<ContadorVeiculos> contador = new List<ContadorVeiculos>();
+
+        //    foreach(var p in dados)
+        //    {
+        //        contador.Add(new ContadorVeiculos {
+        //            Modelo = p.Key,
+        //            Count = p.Value
+        //        });
+        //    }
+        //    return contador;
+        //}
     }
 }

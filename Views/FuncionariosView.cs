@@ -52,7 +52,7 @@ namespace sistemasfrotas.Views
                 {
                     dataGridView1.DataSource = updater.ListarTodos();
                 }
-                //else
+                else
                 {
                 dataGridView1.DataSource = updater.ObterPorEmpresa(comboBox1.SelectedValue.ToString());
                 }

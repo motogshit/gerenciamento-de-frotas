@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Controller;
-using sistemasfrotas.Model;
+using System.Globalization;
+
 namespace sistemasfrotas.Views
 {
     public partial class EmpresaView : UserControl
@@ -30,18 +24,30 @@ namespace sistemasfrotas.Views
                 }
             }
         }
+        private empresaController c = new empresaController();
+        private CultureInfo cultureInfo = new CultureInfo("pt-BR");
         public EmpresaView()
         {
             InitializeComponent();
-
-            //Gatilho para carregar informações no DataGridView
+            //Gatilho para carregar informações no DataGridView0
             PopularGrid();
+
+            //EmpresaRepositorio emp = new EmpresaRepositorio();
+            //chart1.DataSource = emp.Top5();
+            //chart1.Series.Add("Teste");
+            //chart1.Series.RemoveAt(0);
+            //chart1.Series["Teste"].XValueMember = "razao";
+            //chart1.Series["Teste"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            //chart1.Series["Teste"].YValueMembers = "count";
+            //chart1.Series["Teste"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            
+            //chart1.DataBind();
         }
 
         public void PopularGrid()
         {
             //Instancia da conexão
-            empresaController c = new empresaController();
+            
             dataGridView1.DataSource = c.ListarTodos();
         }
 
@@ -53,11 +59,13 @@ namespace sistemasfrotas.Views
             {
                 //Apos inserir as informações atualiza o data grid
                 PopularGrid();
+                form.Dispose();
             }
             else
             {
                 //Atualiza o data grid
                 PopularGrid();
+                form.Dispose();
             }
         }
 
@@ -68,32 +76,40 @@ namespace sistemasfrotas.Views
             if (dataGridView1.CurrentRow.Index != -1)
             {
                 //Chama o construtor do form de cadastro de empresas com construtor personalizado para receber um objeto empresa como argumento
-                CadastroEmpresa form = new CadastroEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "update");
+                CadastroEmpresa form = new CadastroEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value , cultureInfo), "update");
                 //Independente do resultado atualiza o DataGridView
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     PopularGrid();
+                    form.Dispose();
+                    form = null;
                 }
                 else
                 {
                     PopularGrid();
+                    form.Dispose();
+                    form = null;
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você deseja remover este registro?", "Aviso de exclusão de dados", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(Properties.Resources.PerguntaExclusao,Properties.Resources.Aviso_Exclusao, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (dataGridView1.CurrentRow.Index != -1)
                 {
-                    empresaController c = new empresaController();
-                    c.RemoverEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value));
-                    MessageBox.Show("Registro Removido com sucesso!", "Alerta de remoção de dados", MessageBoxButtons.OK);
+                    c.RemoverEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value,cultureInfo));
+                    MessageBox.Show(Properties.Resources.PerguntaExclusao, Properties.Resources.Aviso_Exclusao, MessageBoxButtons.OK);
                     PopularGrid();                                         
                 }
                     
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

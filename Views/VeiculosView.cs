@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Model;
 using sistemasfrotas.Controller;
+using System.Globalization;
 
 namespace sistemasfrotas.Views
 {
@@ -33,7 +34,6 @@ namespace sistemasfrotas.Views
         }
 
         private empresaController _empresa = new empresaController();
-        private veiculosController _controller = new veiculosController();
 
         public VeiculosView()
         {
@@ -62,15 +62,17 @@ namespace sistemasfrotas.Views
            
             if (dataGridView1.CurrentRow.Index != -1)
             {
-                cadastroVeiculos form = new cadastroVeiculos(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "update");
+                cadastroVeiculos form = new cadastroVeiculos(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value,new CultureInfo("pt-BR")), "update");
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    form.Dispose();
                 }
                 else
                 {
                     PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    form.Dispose();
                 }
             }
         }
@@ -81,10 +83,12 @@ namespace sistemasfrotas.Views
             if(form.ShowDialog() == DialogResult.OK)
             {
                 PopularGrid(cbEmpresas.SelectedValue.ToString());
+                form.Dispose();
             }
             else
             {
                 PopularGrid(cbEmpresas.SelectedValue.ToString());
+                form.Dispose();
             }
 
         }
@@ -124,10 +128,12 @@ namespace sistemasfrotas.Views
             if(form.ShowDialog() == DialogResult.OK)
             {
                 PopularGrid(cbEmpresas.SelectedValue.ToString());
+                form.Dispose();
             }
             else
             {
                 PopularGrid(cbEmpresas.SelectedValue.ToString());
+                form.Dispose();
             }
         }
 
@@ -137,19 +143,21 @@ namespace sistemasfrotas.Views
 
             if (dataGridView1.CurrentRow.Index != -1)
             {
-                alugarVeiculo form = new alugarVeiculo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value), "devolve");
+                alugarVeiculo form = new alugarVeiculo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR")), "devolve");
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    form.Dispose();
                 }
                 else
                 {
                     PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    form.Dispose();
                 }
             }
             else
             {
-                MessageBox.Show("Selecione um veiculo no com status em uso antes de devolver");
+                MessageBox.Show("Selecione um veiculo com status em uso antes de devolver");
             }
             
         }

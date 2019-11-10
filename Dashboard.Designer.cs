@@ -41,8 +41,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbAcesso = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
-            this.Container = new System.Windows.Forms.Panel();
+            this.Container1 = new System.Windows.Forms.Panel();
             this.relogio = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,6 +54,7 @@
             this.MenuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuPanel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.MenuPanel.Controls.Add(this.button2);
             this.MenuPanel.Controls.Add(this.btnFuncionarios);
             this.MenuPanel.Controls.Add(this.btnVeiculos);
             this.MenuPanel.Controls.Add(this.btnPagamentos);
@@ -225,20 +227,40 @@
             this.lbUsuario.TabIndex = 0;
             this.lbUsuario.Text = "Usuario: Teste";
             // 
-            // Container
+            // Container1
             // 
-            this.Container.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Container1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Container.Location = new System.Drawing.Point(190, 95);
-            this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(1176, 673);
-            this.Container.TabIndex = 3;
+            this.Container1.Location = new System.Drawing.Point(190, 95);
+            this.Container1.Name = "Container1";
+            this.Container1.Size = new System.Drawing.Size(1176, 673);
+            this.Container1.TabIndex = 3;
             // 
             // relogio
             // 
             this.relogio.Enabled = true;
             this.relogio.Tick += new System.EventHandler(this.relogio_Tick);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(8, 248);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 51);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Estatisticas";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Dashboard
             // 
@@ -246,7 +268,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.Container);
+            this.Controls.Add(this.Container1);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.MenuPanel);
             this.Name = "Dashboard";
@@ -268,7 +290,7 @@
         private System.Windows.Forms.Button btnPagamentos;
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Label lbUsuario;
-        private System.Windows.Forms.Panel Container;
+        private System.Windows.Forms.Panel Container1;
         private System.Windows.Forms.Button btnEmpresa;
         private System.Windows.Forms.Label lbAcesso;
         private System.Windows.Forms.Button button1;
@@ -276,6 +298,7 @@
         private System.Windows.Forms.Label lbhora;
         private System.Windows.Forms.Timer relogio;
         private System.Windows.Forms.Label lbdata;
+        private System.Windows.Forms.Button button2;
     }
 }
 

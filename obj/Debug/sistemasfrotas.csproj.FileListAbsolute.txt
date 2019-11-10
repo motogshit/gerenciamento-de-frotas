@@ -1,8 +1,6 @@
 C:\Users\PC\Desktop\sistemasfrotas\bin\Debug\sistemasfrotas.exe.config
 C:\Users\PC\Desktop\sistemasfrotas\bin\Debug\sistemasfrotas.exe
 C:\Users\PC\Desktop\sistemasfrotas\bin\Debug\sistemasfrotas.pdb
-C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.csprojAssemblyReference.cache
-C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Properties.Resources.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.exe
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.pdb
@@ -19,3 +17,6 @@ C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroFuncio
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.FuncionariosView.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.cadastroVeiculos.resources
 C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.alugarVeiculo.resources
+C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Properties.Resources.resources
+C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.Views.Estatisticas.resources
+C:\Users\PC\Desktop\sistemasfrotas\obj\Debug\sistemasfrotas.csprojAssemblyReference.cache

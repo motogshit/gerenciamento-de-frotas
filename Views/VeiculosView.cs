@@ -49,9 +49,11 @@ namespace sistemasfrotas.Views
                 if(checkBox1.CheckState == CheckState.Checked)
                 {
                     dataGridView1.DataSource = __controller.ListarTodos();
+                    cbEmpresas.Enabled = false;
                 }
                 else
                 {
+                    cbEmpresas.Enabled = true;
                     dataGridView1.DataSource = __controller.ListarPorEmpresa(s);
                 }
             
@@ -144,15 +146,24 @@ namespace sistemasfrotas.Views
             if (dataGridView1.CurrentRow.Index != -1)
             {
                 alugarVeiculo form = new alugarVeiculo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR")), "devolve");
-                if (form.ShowDialog() == DialogResult.OK)
+
+
+                try
                 {
-                    PopularGrid(cbEmpresas.SelectedValue.ToString());
-                    form.Dispose();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        PopularGrid(cbEmpresas.SelectedValue.ToString());
+                        form.Dispose();
+                    }
+                    else
+                    {
+                        PopularGrid(cbEmpresas.SelectedValue.ToString());
+                        form.Dispose();
+                    }
                 }
-                else
+                catch (ObjectDisposedException ex)
                 {
-                    PopularGrid(cbEmpresas.SelectedValue.ToString());
-                    form.Dispose();
+                    
                 }
             }
             else

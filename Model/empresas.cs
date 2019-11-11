@@ -8,7 +8,6 @@ namespace sistemasfrotas.Model
 
     public partial class empresas
     {
-        [Key]
         public int ID { get; set; }
 
         [Required]
@@ -71,6 +70,5 @@ namespace sistemasfrotas.Model
         public string CEP { get; set; }
 
         public DateTime Adicionado_em { get; set; }
-
     }
 }

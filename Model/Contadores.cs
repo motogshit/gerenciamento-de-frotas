@@ -10,5 +10,7 @@ namespace sistemasfrotas.Model
     {
         public int Count { get; set; }
         public string Texto { get; set; }
+
+        public double Valor { get; set; }
     }
 }

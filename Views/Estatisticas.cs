@@ -31,6 +31,7 @@ namespace sistemasfrotas.Views
         {
             InitializeComponent();
             updateCharts();
+            c.GetCount();
         }
 
         private void updateCharts()
@@ -62,6 +63,13 @@ namespace sistemasfrotas.Views
             }
             chart4.Series["Teste"].IsValueShownAsLabel = true;
             chart4.Titles.Add("Grafico da disponibilidade dos veiculos");
+
+            foreach (var entradas in c.GetCount())
+            {
+                chart5.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Valor);
+            }
+            chart5.Series["Teste"].IsValueShownAsLabel = true;
+            chart5.Titles.Add("Grafico das Empresas com mais despesas");
         }
 
     }

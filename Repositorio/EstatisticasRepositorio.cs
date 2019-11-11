@@ -107,5 +107,26 @@ namespace sistemasfrotas.Repositorio
             }
             return dados;
         }
+        public List<Contadores> GetCounts()
+        {
+            var query = dbContext.recibos
+                .GroupBy(a => a.Razao)
+                .Select(b => new { razao = b.Key, count = b.Sum(c => c.Valor) })
+                .OrderByDescending(d => d.count)
+                .Take(5)
+                .ToDictionary(f => f.razao, g => g.count);
+
+            List<Contadores> dados = new List<Contadores>();
+
+            foreach (var c in query)
+            {
+                dados.Add(new Contadores
+                {
+                    Texto = c.Key,
+                    Valor = c.Value
+                });
+            }
+            return dados;
+        }
     }
 }

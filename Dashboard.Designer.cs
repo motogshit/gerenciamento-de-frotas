@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnFuncionarios = new System.Windows.Forms.Button();
             this.btnVeiculos = new System.Windows.Forms.Button();
             this.btnPagamentos = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.lbUsuario = new System.Windows.Forms.Label();
             this.Container1 = new System.Windows.Forms.Panel();
             this.relogio = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +63,26 @@
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(190, 768);
             this.MenuPanel.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(8, 248);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 51);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Estatisticas";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnFuncionarios
             // 
@@ -119,9 +139,10 @@
             this.btnPagamentos.Name = "btnPagamentos";
             this.btnPagamentos.Size = new System.Drawing.Size(175, 51);
             this.btnPagamentos.TabIndex = 1;
-            this.btnPagamentos.Text = "Pagamentos";
+            this.btnPagamentos.Text = "Financeiro";
             this.btnPagamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagamentos.UseVisualStyleBackColor = false;
+            this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
             // 
             // btnEmpresa
             // 
@@ -241,26 +262,6 @@
             // 
             this.relogio.Enabled = true;
             this.relogio.Tick += new System.EventHandler(this.relogio_Tick);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(8, 248);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 51);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Estatisticas";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Dashboard
             // 

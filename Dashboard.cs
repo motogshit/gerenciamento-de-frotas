@@ -91,5 +91,19 @@ namespace sistemasfrotas
                 Estatisticas.Instance.BringToFront();
             }
         }
+
+        private void btnPagamentos_Click(object sender, EventArgs e)
+        {
+            if (!Container1.Controls.Contains(FinanceiroView.Instance))
+            {
+                Container1.Controls.Add(FinanceiroView.Instance);
+                FinanceiroView.Instance.Dock = DockStyle.Fill;
+                FinanceiroView.Instance.BringToFront();
+            }
+            else
+            {
+                FinanceiroView.Instance.BringToFront();
+            }
+        }
     }
 }

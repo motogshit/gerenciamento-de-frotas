@@ -44,10 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts, Version=0.9.3.5, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.3.5\lib\net45\LiveCharts.dll</HintPath>
@@ -84,6 +84,7 @@
     <Compile Include="Controller\empresaController.cs" />
     <Compile Include="Controller\estatisticasController.cs" />
     <Compile Include="Controller\funcionarioController.cs" />
+    <Compile Include="Controller\recibosController.cs" />
     <Compile Include="Controller\veiculosController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -95,6 +96,7 @@
     <Compile Include="Model\Contadores.cs" />
     <Compile Include="Model\empresas.cs" />
     <Compile Include="Model\funcionarios.cs" />
+    <Compile Include="Model\recibos.cs" />
     <Compile Include="Model\systemDB.cs" />
     <Compile Include="Model\veiculos.cs" />
     <Compile Include="Program.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Repositorio\EmpresaRepositorio.cs" />
     <Compile Include="Repositorio\EstatisticasRepositorio.cs" />
     <Compile Include="Repositorio\FuncionariosRepositorio.cs" />
+    <Compile Include="Repositorio\RecibosRepositorio.cs" />
     <Compile Include="Repositorio\VeiculosRepositorio.cs" />
     <Compile Include="Views\Cadastros\alugarVeiculo.cs">
       <SubType>Form</SubType>
@@ -138,6 +141,12 @@
     <Compile Include="Views\Cadastros\cadastroVeiculos.Designer.cs">
       <DependentUpon>cadastroVeiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cadastros\reciboForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastros\reciboForm.Designer.cs">
+      <DependentUpon>reciboForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmpresaView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +158,12 @@
     </Compile>
     <Compile Include="Views\Estatisticas.Designer.cs">
       <DependentUpon>Estatisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceiroView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FinanceiroView.Designer.cs">
+      <DependentUpon>FinanceiroView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FuncionariosView.cs">
       <SubType>UserControl</SubType>
@@ -181,11 +196,17 @@
     <EmbeddedResource Include="Views\Cadastros\cadastroVeiculos.resx">
       <DependentUpon>cadastroVeiculos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastros\reciboForm.resx">
+      <DependentUpon>reciboForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmpresaView.resx">
       <DependentUpon>EmpresaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Estatisticas.resx">
       <DependentUpon>Estatisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FinanceiroView.resx">
+      <DependentUpon>FinanceiroView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FuncionariosView.resx">
       <DependentUpon>FuncionariosView.cs</DependentUpon>

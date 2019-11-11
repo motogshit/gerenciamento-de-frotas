@@ -34,5 +34,10 @@ namespace sistemasfrotas.Controller
         {
             return _repo.CountByModels();
         }
+
+        public List<Contadores> GetCount()
+        {
+           return  _repo.GetCounts();
+        }
     }
 }

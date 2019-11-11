@@ -50,7 +50,10 @@ namespace sistemasfrotas.Views
             alugados a = _controller.ObterPorCodigo(id);
             if(a == null)
             {
-                MessageBox.Show("Este veiculo não está em uso");
+                if (MessageBox.Show("Este veiculo não está em uso") == DialogResult.OK)
+                {
+                    Close();
+                }
             }
             else
             {
@@ -74,7 +77,7 @@ namespace sistemasfrotas.Views
             vei = _veiculos.ObterPorId(_id);
             if(vei == null)
             {
-                MessageBox.Show(Resources.PerguntaExclusao,Resources.Aviso_Exclusao, MessageBoxButtons.OK);
+                MessageBox.Show("Erro ao buscar veiculo","Veiculo não encontrado", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
@@ -91,7 +94,7 @@ namespace sistemasfrotas.Views
             fun = _funcionario.BuscarPorId(_id);
             if (fun == null)
             {
-                MessageBox.Show(Resources.AvisoIDFuncionario,Resources.ErroProcurarFuncionario, MessageBoxButtons.OK);
+                MessageBox.Show(Resources.AvisoIDFuncionario,Resources.ErroProcurarFuncionario, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -155,7 +158,6 @@ namespace sistemasfrotas.Views
                 lbStatus.BackColor = Color.Yellow;
                 lbStatus.ForeColor = Color.Black;
             }
-            button1.PerformClick();
         }
 
         private void txCodV_KeyPress(object sender, KeyPressEventArgs e)
@@ -164,11 +166,6 @@ namespace sistemasfrotas.Views
             {
                 e.Handled = true;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

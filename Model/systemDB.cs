@@ -15,6 +15,7 @@ namespace sistemasfrotas.Model
         public virtual DbSet<alugados> alugados { get; set; }
         public virtual DbSet<empresas> empresas { get; set; }
         public virtual DbSet<funcionarios> funcionarios { get; set; }
+        public virtual DbSet<logins> logins { get; set; }
         public virtual DbSet<recibos> recibos { get; set; }
         public virtual DbSet<veiculos> veiculos { get; set; }
 

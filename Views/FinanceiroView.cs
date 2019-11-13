@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using sistemasfrotas.Views;
 using sistemasfrotas.Views.Cadastros;
+using sistemasfrotas.Views.Relatorios;
 using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
@@ -43,8 +43,9 @@ namespace sistemasfrotas.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reciboForm form = new reciboForm();
-            form.Show();
+            new reciboForm().ShowDialog();
+            popularGrid();
+            
         }
 
         void popularBox()
@@ -76,6 +77,12 @@ namespace sistemasfrotas.Views
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             popularGrid();
+        }
+
+        private void btRelatorio_Click(object sender, EventArgs e)
+        {
+            new FormEscolha("Recibos").Show();
+
         }
     }
 }

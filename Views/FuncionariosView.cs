@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Controller;
-using sistemasfrotas.Model;
+using sistemasfrotas.Views.Relatorios;
 
 namespace sistemasfrotas.Views
 {
@@ -131,6 +131,11 @@ namespace sistemasfrotas.Views
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             button1_Click(sender, e);
+        }
+
+        private void btRelatorio_Click(object sender, EventArgs e)
+        {
+            new FormEscolha("Funcionarios").Show();
         }
     }
 }

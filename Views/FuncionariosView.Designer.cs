@@ -37,6 +37,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
+            this.btRelatorio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.Crimson;
-            this.checkBox1.Location = new System.Drawing.Point(336, 631);
+            this.checkBox1.Location = new System.Drawing.Point(498, 625);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(227, 25);
             this.checkBox1.TabIndex = 54;
@@ -116,7 +117,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 50;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Fira Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -162,11 +163,30 @@
             this.btRemover.UseVisualStyleBackColor = false;
             this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
+            // btRelatorio
+            // 
+            this.btRelatorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btRelatorio.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btRelatorio.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRelatorio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRelatorio.ForeColor = System.Drawing.Color.White;
+            this.btRelatorio.Location = new System.Drawing.Point(303, 619);
+            this.btRelatorio.Name = "btRelatorio";
+            this.btRelatorio.Size = new System.Drawing.Size(134, 37);
+            this.btRelatorio.TabIndex = 58;
+            this.btRelatorio.Text = "Relatorio";
+            this.btRelatorio.UseVisualStyleBackColor = false;
+            this.btRelatorio.Click += new System.EventHandler(this.btRelatorio_Click);
+            // 
             // FuncionariosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Controls.Add(this.btRelatorio);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.dataGridView1);
@@ -192,5 +212,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.Button btRemover;
+        private System.Windows.Forms.Button btRelatorio;
     }
 }

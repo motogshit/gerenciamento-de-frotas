@@ -141,7 +141,7 @@ namespace sistemasfrotas.Views
                         Numero = txNumero.Text.Trim(),
                         CEP = txCEP.Text.Trim(),
                         Filial = "Não".Trim(),
-                        Adicionado_em = DateTime.Now
+                        Adicionado_em = Convert.ToDateTime(DateTime.Now.ToString("ddMMyyyyHHmmss"))
                     });
                 }
                 else

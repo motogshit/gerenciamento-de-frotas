@@ -19,6 +19,7 @@ namespace sistemasfrotas.Repositorio
         public List<Contadores> CountByEmplooyers()
         {
             var query = dbContext.funcionarios
+                .AsNoTracking()
                 .GroupBy(a => new { a.CNPJ_Empresa })
                 .Select(b => new { cn = b.Key.CNPJ_Empresa, count = b.Count() })
                 .OrderByDescending(c => c.count)
@@ -30,7 +31,7 @@ namespace sistemasfrotas.Repositorio
             foreach (var c in query)
             {
                 empresas obj = new empresas();
-                obj = dbContext.empresas.FirstOrDefault(x => x.CNPJ == c.Key);
+                obj = dbContext.empresas.AsNoTracking().FirstOrDefault(x => x.CNPJ == c.Key);
 
                 dados.Add(new Contadores
                 {
@@ -46,6 +47,7 @@ namespace sistemasfrotas.Repositorio
         public List<Contadores> CountByModels()
         {
             var query = dbContext.veiculos
+                .AsNoTracking()
                 .GroupBy(a => new { a.Modelo })
                 .Select(b => new { modelo = b.Key.Modelo, count = b.Count() })
                 .OrderByDescending(c => c.count)
@@ -66,6 +68,7 @@ namespace sistemasfrotas.Repositorio
         public List<Contadores> CountByBrands()
         {
             var query = dbContext.veiculos
+                .AsNoTracking()
                 .GroupBy(a => new { a.Marca })
                 .Select(b => new { marca = b.Key.Marca, count = b.Count() })
                 .OrderByDescending(c => c.count)
@@ -89,6 +92,7 @@ namespace sistemasfrotas.Repositorio
         public List<Contadores> GetByStatus()
         {
             var query = dbContext.veiculos
+                .AsNoTracking()
                 .GroupBy(a => a.Status)
                 .Select(b => new { status = b.Key, count = b.Count() })
                 .OrderByDescending(c => c.count)
@@ -110,6 +114,7 @@ namespace sistemasfrotas.Repositorio
         public List<Contadores> GetCounts()
         {
             var query = dbContext.recibos
+                .AsNoTracking()
                 .GroupBy(a => a.Razao)
                 .Select(b => new { razao = b.Key, count = b.Sum(c => c.Valor) })
                 .OrderByDescending(d => d.count)

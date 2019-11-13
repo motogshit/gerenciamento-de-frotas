@@ -40,6 +40,8 @@
             this.btAluga = new System.Windows.Forms.Button();
             this.btCadastra = new System.Windows.Forms.Button();
             this.btDevolve = new System.Windows.Forms.Button();
+            this.btAlugados = new System.Windows.Forms.Button();
+            this.btVeiculos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,7 +148,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 50;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Fira Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -223,11 +225,51 @@
             this.btDevolve.UseVisualStyleBackColor = false;
             this.btDevolve.Click += new System.EventHandler(this.btDevolve_Click);
             // 
+            // btAlugados
+            // 
+            this.btAlugados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAlugados.BackColor = System.Drawing.Color.Navy;
+            this.btAlugados.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btAlugados.FlatAppearance.BorderSize = 0;
+            this.btAlugados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btAlugados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btAlugados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAlugados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAlugados.ForeColor = System.Drawing.Color.White;
+            this.btAlugados.Location = new System.Drawing.Point(843, 22);
+            this.btAlugados.Name = "btAlugados";
+            this.btAlugados.Size = new System.Drawing.Size(160, 58);
+            this.btAlugados.TabIndex = 64;
+            this.btAlugados.Text = "Relatório de veiculos alugados";
+            this.btAlugados.UseVisualStyleBackColor = false;
+            this.btAlugados.Click += new System.EventHandler(this.btAlugados_Click);
+            // 
+            // btVeiculos
+            // 
+            this.btVeiculos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btVeiculos.BackColor = System.Drawing.Color.Navy;
+            this.btVeiculos.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btVeiculos.FlatAppearance.BorderSize = 0;
+            this.btVeiculos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btVeiculos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btVeiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btVeiculos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVeiculos.ForeColor = System.Drawing.Color.White;
+            this.btVeiculos.Location = new System.Drawing.Point(1022, 22);
+            this.btVeiculos.Name = "btVeiculos";
+            this.btVeiculos.Size = new System.Drawing.Size(134, 53);
+            this.btVeiculos.TabIndex = 65;
+            this.btVeiculos.Text = "Relatório Geral";
+            this.btVeiculos.UseVisualStyleBackColor = false;
+            this.btVeiculos.Click += new System.EventHandler(this.btVeiculos_Click);
+            // 
             // VeiculosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Controls.Add(this.btVeiculos);
+            this.Controls.Add(this.btAlugados);
             this.Controls.Add(this.btDevolve);
             this.Controls.Add(this.btAluga);
             this.Controls.Add(this.btCadastra);
@@ -260,5 +302,7 @@
         private System.Windows.Forms.Button btAluga;
         private System.Windows.Forms.Button btCadastra;
         private System.Windows.Forms.Button btDevolve;
+        private System.Windows.Forms.Button btAlugados;
+        private System.Windows.Forms.Button btVeiculos;
     }
 }

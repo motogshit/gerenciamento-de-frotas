@@ -105,5 +105,10 @@ namespace sistemasfrotas
                 FinanceiroView.Instance.BringToFront();
             }
         }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

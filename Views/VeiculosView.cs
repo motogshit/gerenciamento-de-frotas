@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using sistemasfrotas.Model;
 using sistemasfrotas.Controller;
 using System.Globalization;
-
+using sistemasfrotas.Views.Relatorios;
 namespace sistemasfrotas.Views
 {
     public partial class VeiculosView : UserControl
@@ -171,6 +171,16 @@ namespace sistemasfrotas.Views
                 MessageBox.Show("Selecione um veiculo com status em uso antes de devolver");
             }
             
+        }
+
+        private void btVeiculos_Click(object sender, EventArgs e)
+        {
+            new FormEscolha("Veiculos").Show();
+        }
+
+        private void btAlugados_Click(object sender, EventArgs e)
+        {
+            new FormEscolha("Alugados").Show();
         }
     }
 }

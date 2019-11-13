@@ -128,6 +128,8 @@ namespace sistemasfrotas.Views
                 {
                     if (_controller.VerificarFuncionario(Convert.ToInt32(txCodF.Text, cultureInfo)) == null)
                     {
+                        funcionarios fun = new funcionarios();
+                        fun = _funcionario.BuscarPorId(Convert.ToInt32(txCodF.Text, cultureInfo));
                         _controller.Alugar(new alugados
                         {
                             codigo_carro = Convert.ToInt32(txCodV.Text, cultureInfo),
@@ -136,6 +138,7 @@ namespace sistemasfrotas.Views
                             Nome = txNome.Text.Trim(),
                             Km_Inicial = txKmIni.Text.Trim(),
                             status = "Em Uso".Trim(),
+                            cnpj = fun.CNPJ_Empresa,
                             Alugado_em = DateTime.Now
                         });
                         veiculos updater;

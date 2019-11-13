@@ -53,7 +53,13 @@ namespace sistemasfrotas.Views.Cadastros
         {
             recibos valores = new recibos();
 
-            valores = _controller.ObterDadosFuncionario(Convert.ToInt32(txFun.Text,new CultureInfo("pt-BR")));
+            try
+            {
+                valores = _controller.ObterDadosFuncionario(Convert.ToInt32(txFun.Text, new CultureInfo("pt-BR")));
+            }catch(System.FormatException ex)
+            {
+
+            }
 
             lbNome.Text = valores.Nome_Funcionario;
             lbEmpresa.Text = valores.Razao;
@@ -67,9 +73,17 @@ namespace sistemasfrotas.Views.Cadastros
             formulario.Valor = Convert.ToDouble(txValor.Text.Trim(), new CultureInfo("pt-Br"));
             formulario.data = DateTime.Now;
             formulario.Descricao = txDesc.Text.Trim();
-
-            _controller.AdicionarRecibo(formulario);
-            _controller.Salvar();
+            if(txDesc.Text == null)
+            {
+                MessageBox.Show("É necessario adicionar uma descrição do recibo");
+            }
+            else
+            {
+                _controller.AdicionarRecibo(formulario);
+                _controller.Salvar();
+                Close();
+            }
+            
         }
     }
 }

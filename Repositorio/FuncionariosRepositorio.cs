@@ -5,6 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Text;
 using System.Threading.Tasks;
 using sistemasfrotas.Model;
+using System.Data.Entity.Core.Objects;
 
 namespace sistemasfrotas.Repositorio
 {
@@ -19,7 +20,7 @@ namespace sistemasfrotas.Repositorio
 
         public List<funcionarios> GetFuncionarios()
         {
-            return dbContext.funcionarios.ToList();
+            return dbContext.funcionarios.AsNoTracking().ToList();
         }
 
         public void NovoFuncionario(funcionarios dados)
@@ -43,17 +44,22 @@ namespace sistemasfrotas.Repositorio
 
         public funcionarios ObterPorId(int id)
         {
-            return dbContext.funcionarios.FirstOrDefault(x => x.ID == id);
+            return dbContext.funcionarios.AsNoTracking().FirstOrDefault(x => x.ID == id);
         }
 
         public List<funcionarios> ObterPorEmpresas(string CNPJ)
         {
-            return dbContext.funcionarios.Where(x => x.CNPJ_Empresa == CNPJ).ToList();
+            return dbContext.funcionarios.AsNoTracking().Where(x => x.CNPJ_Empresa == CNPJ).ToList();
         }
 
         public funcionarios ObterPorCPF(string s)
         {
-            return dbContext.funcionarios.FirstOrDefault(x => x.CPF == s);
+            return dbContext.funcionarios.AsNoTracking().FirstOrDefault(x => x.CPF == s);
+        }
+
+        public List<funcionarios> ObterRelatorioPorEmpresa(string s, DateTime d1, DateTime d2)
+        {
+            return dbContext.funcionarios.AsNoTracking().Where(x => x.CNPJ_Empresa == s && EntityFunctions.TruncateTime(x.Adicionado_em) >= d1 && EntityFunctions.TruncateTime(x.Adicionado_em) <= d2).ToList();
         }
     }
 }

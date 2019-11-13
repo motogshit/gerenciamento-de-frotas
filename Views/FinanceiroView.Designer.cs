@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btRelatorio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,11 +127,30 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // btRelatorio
+            // 
+            this.btRelatorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btRelatorio.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btRelatorio.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btRelatorio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRelatorio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRelatorio.ForeColor = System.Drawing.Color.White;
+            this.btRelatorio.Location = new System.Drawing.Point(880, 13);
+            this.btRelatorio.Name = "btRelatorio";
+            this.btRelatorio.Size = new System.Drawing.Size(135, 49);
+            this.btRelatorio.TabIndex = 6;
+            this.btRelatorio.Text = "Relatório";
+            this.btRelatorio.UseVisualStyleBackColor = false;
+            this.btRelatorio.Click += new System.EventHandler(this.btRelatorio_Click);
+            // 
             // FinanceiroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Controls.Add(this.btRelatorio);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -153,5 +173,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btRelatorio;
     }
 }

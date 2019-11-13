@@ -33,6 +33,10 @@ namespace sistemasfrotas.Model
         [StringLength(150)]
         public string status { get; set; }
 
+        [Required]
+        [StringLength(150)]
+        public string cnpj { get; set; }
+
         public DateTime Alugado_em { get; set; }
 
         public DateTime? Devolvido_em { get; set; }

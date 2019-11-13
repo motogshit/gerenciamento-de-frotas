@@ -43,37 +43,16 @@ namespace sistemasfrotas
 
         public empresas ObterPorId(int id)
         {
-            return dBContext.empresas.FirstOrDefault(x => x.ID == id);
+            return dBContext.empresas.AsNoTracking().FirstOrDefault(x => x.ID == id);
         }
 
         public List<empresas> ObterPorCNPJ(string CNPJ)
         {
-            return dBContext.empresas.Where(x => x.CNPJ == CNPJ).ToList();
+            return dBContext.empresas.AsNoTracking().Where(x => x.CNPJ == CNPJ).ToList();
         }
         public empresas ObjetoCNPJ(string CNPJ)
         {
-            return dBContext.empresas.FirstOrDefault(x => x.CNPJ == CNPJ);
+            return dBContext.empresas.AsNoTracking().FirstOrDefault(x => x.CNPJ == CNPJ);
         }
-
-        //public List<ContadorVeiculos> Top5()
-        //{
-        //    var dados = dBContext.empresas
-        //        .GroupBy(a => new { a.Razao })
-        //        .Select(b => new { nome_da_empresa = b.Key.Razao, valor = b.Count() })
-        //        .OrderByDescending(c => c.valor)
-        //        .Take(5)
-        //        .ToDictionary(d => d.nome_da_empresa, f => f.valor);
-
-        //    List<ContadorVeiculos> contador = new List<ContadorVeiculos>();
-
-        //    foreach(var p in dados)
-        //    {
-        //        contador.Add(new ContadorVeiculos {
-        //            Modelo = p.Key,
-        //            Count = p.Value
-        //        });
-        //    }
-        //    return contador;
-        //}
     }
 }

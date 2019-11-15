@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Views.Cadastros;
 using sistemasfrotas.Views.Relatorios;
 using sistemasfrotas.Controller;
-
+using sistemasfrotas.Model;
 namespace sistemasfrotas.Views
 {
     public partial class FinanceiroView : UserControl
     {
         private recibosController _controller = new recibosController();
         private empresaController _empresa = new empresaController();
+        private List<empresas> old = new List<empresas>();
+        private List<empresas> novo = new List<empresas>();
         private static FinanceiroView _instance;
 
         public static FinanceiroView Instance
@@ -65,7 +61,13 @@ namespace sistemasfrotas.Views
             }
             else
             {
-                dataGridView1.DataSource = _controller.ObterPorEmpresa(cbEmpresa.SelectedValue.ToString());
+                try
+                {
+                    dataGridView1.DataSource = _controller.ObterPorEmpresa(cbEmpresa.SelectedValue.ToString());
+                }catch(System.NullReferenceException ex)
+                {
+
+                }
             }
         }
 
@@ -83,6 +85,21 @@ namespace sistemasfrotas.Views
         {
             new FormEscolha("Recibos").Show();
 
+        }
+
+        private void cbUpdater_Tick(object sender, EventArgs e)
+        {
+            novo = _empresa.ListarTodos();
+
+            if (old == novo)
+            {
+
+            }
+            else
+            {
+                old = novo;
+                popularBox();
+            }
         }
     }
 }

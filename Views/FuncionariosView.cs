@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Controller;
 using sistemasfrotas.Views.Relatorios;
+using sistemasfrotas.Model;
 
 namespace sistemasfrotas.Views
 {
@@ -19,6 +20,9 @@ namespace sistemasfrotas.Views
         private empresaController _empresa = new empresaController();
 
         private funcionarioController _controller = new funcionarioController();
+
+        private List<empresas> old = new List<empresas>();
+        private List<empresas> novo = new List<empresas>();
 
         public static FuncionariosView Instance
         {
@@ -39,22 +43,25 @@ namespace sistemasfrotas.Views
         {
             InitializeComponent();
             popularBox();
-            PopularGrid(comboBox1.SelectedValue.ToString());
+            PopularGrid();
         }
-        void PopularGrid(string s)
+        void PopularGrid()
         {
-            /* Motivo para ter uma instancia de conexão isolada para a atualização do DataGrid...
-               Por algum motivo após atualizar uma informação na tabela o comando db.funcionarios.ToList() não estava me retornando uma tabela atualizada
-               por este motivo existe uma conexão isolada em todos os métodos popularGrid*/
-
-                funcionarioController updater = new funcionarioController();
+                
                 if (checkBox1.CheckState == CheckState.Checked)
                 {
-                    dataGridView1.DataSource = updater.ListarTodos();
+                    dataGridView1.DataSource = _controller.ListarTodos();
                 }
                 else
                 {
-                dataGridView1.DataSource = updater.ObterPorEmpresa(comboBox1.SelectedValue.ToString());
+                    try
+                    {
+                        dataGridView1.DataSource = _controller.ObterPorEmpresa(comboBox1.SelectedValue.ToString());
+                    }
+                    catch(System.NullReferenceException ex)
+                    {
+
+                    }
                 }
         }
         
@@ -67,11 +74,11 @@ namespace sistemasfrotas.Views
 
                 if(form.ShowDialog() == DialogResult.OK)
                 {
-                    PopularGrid(comboBox1.SelectedValue.ToString());
+                    PopularGrid();
                 }
                 else
                 {
-                    PopularGrid(comboBox1.SelectedValue.ToString()); 
+                    PopularGrid(); 
                 }
             }
         }
@@ -81,11 +88,11 @@ namespace sistemasfrotas.Views
             cadastroFuncionarios form = new cadastroFuncionarios();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid(comboBox1.SelectedValue.ToString());
+                PopularGrid();
             }
             else
             {
-                PopularGrid(comboBox1.SelectedValue.ToString());
+                PopularGrid();
             }
 
         }
@@ -98,7 +105,7 @@ namespace sistemasfrotas.Views
                 {
                     _controller.RemoverFuncionario(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value));
                     MessageBox.Show("Removido com sucesso!", "Aviso de remoção de registro", MessageBoxButtons.OK);
-                    PopularGrid(comboBox1.SelectedValue.ToString());
+                    PopularGrid();
                 }
             }
         }
@@ -118,13 +125,13 @@ namespace sistemasfrotas.Views
             if (checkBox1.CheckState == CheckState.Checked)
             {
                 comboBox1.Enabled = false;
-                PopularGrid("");
+                PopularGrid();
             }
             else
             {
                 comboBox1.Enabled = true;
 
-                PopularGrid(comboBox1.SelectedValue.ToString());
+                PopularGrid();
             }
         }
 
@@ -136,6 +143,23 @@ namespace sistemasfrotas.Views
         private void btRelatorio_Click(object sender, EventArgs e)
         {
             new FormEscolha("Funcionarios").Show();
+        }
+
+        private void cbUpdater_Tick(object sender, EventArgs e)
+        {
+            
+
+            novo = _empresa.ListarTodos();
+
+            if (old.Count() == novo.Count())
+            {
+
+            }
+            else
+            {
+                old = novo;
+                popularBox();
+            }
         }
     }
 }

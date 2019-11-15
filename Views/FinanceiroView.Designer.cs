@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -36,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btRelatorio = new System.Windows.Forms.Button();
+            this.cbUpdater = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,6 +147,11 @@
             this.btRelatorio.UseVisualStyleBackColor = false;
             this.btRelatorio.Click += new System.EventHandler(this.btRelatorio_Click);
             // 
+            // cbUpdater
+            // 
+            this.cbUpdater.Enabled = true;
+            this.cbUpdater.Tick += new System.EventHandler(this.cbUpdater_Tick);
+            // 
             // FinanceiroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -174,5 +181,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btRelatorio;
+        private System.Windows.Forms.Timer cbUpdater;
     }
 }

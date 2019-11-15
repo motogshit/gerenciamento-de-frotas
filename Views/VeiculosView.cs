@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Model;
 using sistemasfrotas.Controller;
 using System.Globalization;
 using sistemasfrotas.Views.Relatorios;
+
 namespace sistemasfrotas.Views
 {
     public partial class VeiculosView : UserControl
@@ -34,18 +29,21 @@ namespace sistemasfrotas.Views
         }
 
         private empresaController _empresa = new empresaController();
+        private veiculosController __controller = new veiculosController();
+        private List<empresas> old = new List<empresas>();
+        private List<empresas> novo = new List<empresas>();
 
         public VeiculosView()
         {
             InitializeComponent();
             popularBox();
-            PopularGrid(cbEmpresas.SelectedValue.ToString());
+            PopularGrid();
             
         }
 
-        void PopularGrid(string s)
+        void PopularGrid()
         {
-            veiculosController __controller = new veiculosController();
+            
                 if(checkBox1.CheckState == CheckState.Checked)
                 {
                     dataGridView1.DataSource = __controller.ListarTodos();
@@ -53,8 +51,14 @@ namespace sistemasfrotas.Views
                 }
                 else
                 {
-                    cbEmpresas.Enabled = true;
-                    dataGridView1.DataSource = __controller.ListarPorEmpresa(s);
+                    cbEmpresas.Enabled = true; 
+                    try
+                    {
+                        dataGridView1.DataSource = __controller.ListarPorEmpresa(cbEmpresas.SelectedValue.ToString());    
+                    }catch(System.NullReferenceException ex)
+                    {
+
+                    }
                 }
             
         }
@@ -68,12 +72,12 @@ namespace sistemasfrotas.Views
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    PopularGrid();
                     form.Dispose();
                 }
                 else
                 {
-                    PopularGrid(cbEmpresas.SelectedValue.ToString());
+                    PopularGrid();
                     form.Dispose();
                 }
             }
@@ -84,12 +88,12 @@ namespace sistemasfrotas.Views
             cadastroVeiculos form = new cadastroVeiculos();
             if(form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid(cbEmpresas.SelectedValue.ToString());
+                PopularGrid();
                 form.Dispose();
             }
             else
             {
-                PopularGrid(cbEmpresas.SelectedValue.ToString());
+                PopularGrid();
                 form.Dispose();
             }
 
@@ -100,12 +104,12 @@ namespace sistemasfrotas.Views
             if(checkBox1.CheckState == CheckState.Checked)
             {
                 cbEmpresas.Enabled = false;
-                PopularGrid("");
+                PopularGrid();
             }
             else
             {
                 cbEmpresas.Enabled = true;
-                PopularGrid(cbEmpresas.SelectedValue.ToString());
+                PopularGrid();
             }
         }
 
@@ -129,12 +133,12 @@ namespace sistemasfrotas.Views
 
             if(form.ShowDialog() == DialogResult.OK)
             {
-                PopularGrid(cbEmpresas.SelectedValue.ToString());
+                PopularGrid();
                 form.Dispose();
             }
             else
             {
-                PopularGrid(cbEmpresas.SelectedValue.ToString());
+                PopularGrid();
                 form.Dispose();
             }
         }
@@ -152,12 +156,12 @@ namespace sistemasfrotas.Views
                 {
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        PopularGrid(cbEmpresas.SelectedValue.ToString());
+                        PopularGrid();
                         form.Dispose();
                     }
                     else
                     {
-                        PopularGrid(cbEmpresas.SelectedValue.ToString());
+                        PopularGrid();
                         form.Dispose();
                     }
                 }
@@ -181,6 +185,21 @@ namespace sistemasfrotas.Views
         private void btAlugados_Click(object sender, EventArgs e)
         {
             new FormEscolha("Alugados").Show();
+        }
+
+        private void cbUpdater_Tick(object sender, EventArgs e)
+        {
+            novo = _empresa.ListarTodos();
+
+            if (old == novo)
+            {
+
+            }
+            else
+            {
+                old = novo;
+                popularBox();
+            }
         }
     }
 }

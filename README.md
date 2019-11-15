@@ -1,29 +1,17 @@
-# gerenciamento-de-frotas
+# Gerenciamento de Frotas
 
-Aplicação com proposito para gerenciamento de veiculos!~
+- Conecte ao arquivo de banco de dados .MDF ou ao servidor SQL Express com as tabelas presentes no Arquivo BancoDeDadosSQL.sql
+- Adicione dentro da pasta model um novo item ADO.NET Entity Framework > Nome: systemDB> Code First From Database > Selecione a sua fomra de conexão desejada (Arquivo ou Servidor de banco de dados) >Selecione Todas as tabelas
+- Compile o seu programa!
 
-O que está funcionando?
+# Em caso de erro no ReportViewer 
+- Abra o gerenciador de pacotes NuGet e adicione ao projeto o componente Microsoft.ReportingServices.ReportViewerControl.Winforms V150.1400.0
+- Compile e execute
 
-- Cadastro, remoção e atualização de empresas e filiais.
-- Cadastro, remoção e atualização de funcionarios das empresas.
-- Sistema de cadastro, atualização, aluguel e devolução de veiculos.
-- Sistema de recibos
-- Sistema de gráficos e relatórios.
-
-
-O que falta fazer?
-- Sistema de comunicação com API mobile.
-
-
-Instruções para uso
-
-- Instale o Microsoft SQl Server Express em seu computador
-- Instale o SSMS para realizar a restauração do Arquivo do banco de dados no servidor
-- Execute a aplicação e faça um novo registro.
-
-
-O que há de novo?
-- 12/11/2019
--- Fim de quase todas as operações necessarias para construção do MVP do projeto. A partir de agora será feita atualização para melhorias ou correção de bugs.
-
-Prazo para finalizar 26 de Novembro de 2019
+# Caso o seu ambiente não possua o Microsoft RDLC Report Designer para Visual Studio
+- Abra o Visual Studio
+- Abra o menu Extensões > Gerenciar Extensões
+- Busque por: Microsoft Rdlc Report Designer
+- Instale a extensão > feche o Visual Studio
+- Um dialogo sera aberto > Aperte em modificar e aguarde o fim da instalação
+- Agora abra o projeto e compile o programa!

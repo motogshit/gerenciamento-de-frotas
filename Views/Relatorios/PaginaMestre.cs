@@ -34,12 +34,14 @@ namespace sistemasfrotas.Views.Relatorios
                 this.reportVeiculos.Visible = false;
                 this.reportRecibos.Visible = false;
                 this.reportAlugados.Visible = false;
+                this.reportManutencao.Visible = false;
             }
             else if (alvo == "Veiculos")
             {
                 this.reportFuncionarios.Visible = false;
                 this.reportRecibos.Visible = false;
                 this.reportAlugados.Visible = false;
+                this.reportManutencao.Visible = false;
 
             }
             else if (alvo == "Recibos")
@@ -47,18 +49,27 @@ namespace sistemasfrotas.Views.Relatorios
                 this.reportFuncionarios.Visible = false;
                 this.reportVeiculos.Visible = false;
                 this.reportAlugados.Visible = false;
+                this.reportManutencao.Visible = false;
             }
             else if (alvo == "Alugados")
             {
                 this.reportFuncionarios.Visible = false;
                 this.reportVeiculos.Visible = false;
                 this.reportRecibos.Visible = false;
+                this.reportManutencao.Visible = false;
+            }else if(alvo == "Manutencao")
+            {
+                this.reportFuncionarios.Visible = false;
+                this.reportVeiculos.Visible = false;
+                this.reportRecibos.Visible = false;
+                this.reportAlugados.Visible = false;
             }
         }
 
         private void PaginaMestre_Load(object sender, EventArgs e)
         {
             dt1_ValueChanged(sender, e);
+            this.reportManutencao.RefreshReport();
         }
 
         private void dt1_ValueChanged(object sender, EventArgs e)
@@ -115,6 +126,19 @@ namespace sistemasfrotas.Views.Relatorios
 
                 }
                 this.reportAlugados.RefreshReport();
+            }else if(_alvo == "Manutencao")
+            {
+                try
+                {
+                    d1 = DateTime.Parse(dt1.Value.ToShortDateString());
+                    d2 = DateTime.Parse(dt2.Value.ToShortDateString());
+                    manutencaoBindingSource.DataSource = _controller.ListarManutencaoPorEmpresa(_s, d1, d2);
+                }
+                catch (System.NotSupportedException ex)
+                {
+
+                }
+                this.reportManutencao.RefreshReport();
             }
         }
     }

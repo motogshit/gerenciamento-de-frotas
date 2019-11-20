@@ -33,10 +33,7 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.veiculosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recibosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alugadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportFuncionarios = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dt1 = new System.Windows.Forms.DateTimePicker();
             this.dt2 = new System.Windows.Forms.DateTimePicker();
@@ -46,28 +43,19 @@
             this.reportVeiculos = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportRecibos = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportAlugados = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recibosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alugadosBindingSource)).BeginInit();
+            this.reportManutencao = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.manutencaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alugadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recibosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.veiculosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manutencaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alugadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recibosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // funcionariosBindingSource
-            // 
-            this.funcionariosBindingSource.DataSource = typeof(sistemasfrotas.Model.funcionarios);
-            // 
-            // veiculosBindingSource
-            // 
-            this.veiculosBindingSource.DataSource = typeof(sistemasfrotas.Model.veiculos);
-            // 
-            // recibosBindingSource
-            // 
-            this.recibosBindingSource.DataSource = typeof(sistemasfrotas.Model.recibos);
-            // 
-            // alugadosBindingSource
-            // 
-            this.alugadosBindingSource.DataSource = typeof(sistemasfrotas.Model.alugados);
             // 
             // reportFuncionarios
             // 
@@ -173,12 +161,46 @@
             this.reportAlugados.Size = new System.Drawing.Size(1059, 383);
             this.reportAlugados.TabIndex = 8;
             // 
+            // reportManutencao
+            // 
+            this.reportManutencao.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource5.Name = "dtManutencao";
+            reportDataSource5.Value = this.manutencaoBindingSource;
+            this.reportManutencao.LocalReport.DataSources.Add(reportDataSource5);
+            this.reportManutencao.LocalReport.ReportEmbeddedResource = "sistemasfrotas.Views.Relatorios.Manutencao.rdlc";
+            this.reportManutencao.Location = new System.Drawing.Point(0, 0);
+            this.reportManutencao.Name = "reportManutencao";
+            this.reportManutencao.ServerReport.BearerToken = null;
+            this.reportManutencao.Size = new System.Drawing.Size(1059, 383);
+            this.reportManutencao.TabIndex = 9;
+            // 
+            // manutencaoBindingSource
+            // 
+            this.manutencaoBindingSource.DataSource = typeof(sistemasfrotas.Model.manutencao);
+            // 
+            // alugadosBindingSource
+            // 
+            this.alugadosBindingSource.DataSource = typeof(sistemasfrotas.Model.alugados);
+            // 
+            // recibosBindingSource
+            // 
+            this.recibosBindingSource.DataSource = typeof(sistemasfrotas.Model.recibos);
+            // 
+            // veiculosBindingSource
+            // 
+            this.veiculosBindingSource.DataSource = typeof(sistemasfrotas.Model.veiculos);
+            // 
+            // funcionariosBindingSource
+            // 
+            this.funcionariosBindingSource.DataSource = typeof(sistemasfrotas.Model.funcionarios);
+            // 
             // PaginaMestre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1059, 483);
+            this.Controls.Add(this.reportManutencao);
             this.Controls.Add(this.reportAlugados);
             this.Controls.Add(this.reportRecibos);
             this.Controls.Add(this.reportVeiculos);
@@ -189,12 +211,13 @@
             this.Name = "PaginaMestre";
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.PaginaMestre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recibosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alugadosBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manutencaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alugadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recibosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +237,7 @@
         private System.Windows.Forms.BindingSource recibosBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportAlugados;
         private System.Windows.Forms.BindingSource alugadosBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportManutencao;
+        private System.Windows.Forms.BindingSource manutencaoBindingSource;
     }
 }

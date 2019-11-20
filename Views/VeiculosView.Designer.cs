@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -44,6 +44,8 @@
             this.btAlugados = new System.Windows.Forms.Button();
             this.btVeiculos = new System.Windows.Forms.Button();
             this.cbUpdater = new System.Windows.Forms.Timer(this.components);
+            this.btManu = new System.Windows.Forms.Button();
+            this.btManutencao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +115,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.Crimson;
-            this.checkBox1.Location = new System.Drawing.Point(479, 636);
+            this.checkBox1.Location = new System.Drawing.Point(317, 50);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(197, 25);
             this.checkBox1.TabIndex = 57;
@@ -133,14 +135,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -149,12 +151,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 50;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 34;
             this.dataGridView1.Size = new System.Drawing.Size(1135, 497);
             this.dataGridView1.TabIndex = 58;
@@ -269,11 +271,51 @@
             // 
             this.cbUpdater.Tick += new System.EventHandler(this.cbUpdater_Tick);
             // 
+            // btManu
+            // 
+            this.btManu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btManu.BackColor = System.Drawing.Color.Navy;
+            this.btManu.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btManu.FlatAppearance.BorderSize = 0;
+            this.btManu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btManu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btManu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btManu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btManu.ForeColor = System.Drawing.Color.White;
+            this.btManu.Location = new System.Drawing.Point(443, 624);
+            this.btManu.Name = "btManu";
+            this.btManu.Size = new System.Drawing.Size(175, 37);
+            this.btManu.TabIndex = 67;
+            this.btManu.Text = "Designar a manutenção";
+            this.btManu.UseVisualStyleBackColor = false;
+            this.btManu.Click += new System.EventHandler(this.btManu_Click);
+            // 
+            // btManutencao
+            // 
+            this.btManutencao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btManutencao.BackColor = System.Drawing.Color.Navy;
+            this.btManutencao.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btManutencao.FlatAppearance.BorderSize = 0;
+            this.btManutencao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btManutencao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btManutencao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btManutencao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btManutencao.ForeColor = System.Drawing.Color.White;
+            this.btManutencao.Location = new System.Drawing.Point(659, 22);
+            this.btManutencao.Name = "btManutencao";
+            this.btManutencao.Size = new System.Drawing.Size(160, 58);
+            this.btManutencao.TabIndex = 68;
+            this.btManutencao.Text = "Relatorio Manutenção";
+            this.btManutencao.UseVisualStyleBackColor = false;
+            this.btManutencao.Click += new System.EventHandler(this.btManutencao_Click);
+            // 
             // VeiculosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Controls.Add(this.btManutencao);
+            this.Controls.Add(this.btManu);
             this.Controls.Add(this.btVeiculos);
             this.Controls.Add(this.btAlugados);
             this.Controls.Add(this.btDevolve);
@@ -311,5 +353,7 @@
         private System.Windows.Forms.Button btAlugados;
         private System.Windows.Forms.Button btVeiculos;
         private System.Windows.Forms.Timer cbUpdater;
+        private System.Windows.Forms.Button btManu;
+        private System.Windows.Forms.Button btManutencao;
     }
 }

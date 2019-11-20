@@ -40,5 +40,15 @@ namespace sistemasfrotas.Controller
         {
             _repo.AddData(objeto);
         }
+
+        public void AtualizarReciboManutencao(recibos objeto)
+        {
+            _repo.UpdateValue(objeto);
+        }
+
+        public recibos ObterPorManutencao(int id)
+        {
+            return _repo.GetByMainCode(id);
+        }
     }
 }

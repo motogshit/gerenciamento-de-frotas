@@ -14,12 +14,14 @@ namespace sistemasfrotas.Controller
         private VeiculosRepositorio _veiculos;
         private RecibosRepositorio _recibos;
         private AlugarRepositorio _alugados;
+        private ManutencaoRepositorio _manutencao;
         public relatoriosController()
         {
             _funcionarios = new FuncionariosRepositorio();
             _veiculos = new VeiculosRepositorio();
             _recibos = new RecibosRepositorio();
             _alugados = new AlugarRepositorio();
+            _manutencao = new ManutencaoRepositorio();
         }
 
         public List<funcionarios> ListarFuncionariosPorEmpresa(string s, DateTime d1, DateTime d2)
@@ -38,6 +40,11 @@ namespace sistemasfrotas.Controller
         public List<alugados> ListarAlugadosPorEmpresa(string s, DateTime d1, DateTime d2)
         {
             return _alugados.ObterRelatorioPorEmpresa(s, d1, d2);
+        }
+
+        public List<manutencao> ListarManutencaoPorEmpresa(string s, DateTime d1, DateTime d2)
+        {
+            return _manutencao.GetReport(s, d1, d2);
         }
     }
 }

@@ -73,7 +73,10 @@ namespace sistemasfrotas.Views
         private void txCodV_TextChanged(object sender, EventArgs e)
         {
             veiculos vei;
-            _id = Convert.ToInt32(txCodV.Text, cultureInfo);
+            if(!string.IsNullOrEmpty(txCodV.Text))
+            {
+                _id = Convert.ToInt32(txCodV.Text, cultureInfo);
+            }
             vei = _veiculos.ObterPorId(_id);
             if(vei == null)
             {
@@ -146,7 +149,17 @@ namespace sistemasfrotas.Views
                         updater.Status = "Em Uso";
                         _veiculos.Atualizar(updater);
                     }
+                    else
+                    {
+                        MessageBox.Show("Funcionario ja possui veiculo");
+                    }
+
                 }
+                else
+                {
+                    MessageBox.Show("Veiculo em uso");
+                }
+               
             } 
         }
 
@@ -165,7 +178,9 @@ namespace sistemasfrotas.Views
 
         private void txCodV_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+
+            //aceita apenas números, tecla backspace.
+            if(!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }

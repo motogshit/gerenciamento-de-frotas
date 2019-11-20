@@ -5,6 +5,7 @@ using sistemasfrotas.Model;
 using sistemasfrotas.Controller;
 using System.Globalization;
 using sistemasfrotas.Views.Relatorios;
+using sistemasfrotas.Views.Cadastros;
 
 namespace sistemasfrotas.Views
 {
@@ -167,12 +168,13 @@ namespace sistemasfrotas.Views
                 }
                 catch (ObjectDisposedException ex)
                 {
-                    
+                    form.Dispose();
                 }
             }
             else
             {
                 MessageBox.Show("Selecione um veiculo com status em uso antes de devolver");
+                
             }
             
         }
@@ -200,6 +202,16 @@ namespace sistemasfrotas.Views
                 old = novo;
                 popularBox();
             }
+        }
+
+        private void btManu_Click(object sender, EventArgs e)
+        {
+            new manutencaoForm("", Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR"))).Show();
+        }
+
+        private void btManutencao_Click(object sender, EventArgs e)
+        {
+            new FormEscolha("Manutencao").Show();
         }
     }
 }

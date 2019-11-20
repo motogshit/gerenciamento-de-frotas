@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,16 @@ namespace sistemasfrotas.Repositorio
         public List<recibos> ObterRelatorioPorEmpresa(string s, DateTime d1, DateTime d2)
         {
             return dbContext.recibos.AsNoTracking().Where(x => x.CNPJ == s && EntityFunctions.TruncateTime(x.data) >= d1 && EntityFunctions.TruncateTime(x.data) <= d2).ToList();
+        }
+
+        public void UpdateValue(recibos dados)
+        {
+            dbContext.Set<recibos>().AddOrUpdate(dados);
+        }
+
+        public recibos GetByMainCode(int id)
+        {
+            return dbContext.recibos.FirstOrDefault(x => x.CodigoManutencao == id);
         }
     }
 }

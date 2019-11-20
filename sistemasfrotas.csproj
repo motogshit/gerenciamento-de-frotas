@@ -21,6 +21,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -33,7 +34,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -118,6 +118,7 @@
     <Compile Include="Controller\empresaController.cs" />
     <Compile Include="Controller\estatisticasController.cs" />
     <Compile Include="Controller\funcionarioController.cs" />
+    <Compile Include="Controller\manutencaoController.cs" />
     <Compile Include="Controller\recibosController.cs" />
     <Compile Include="Controller\relatoriosController.cs" />
     <Compile Include="Controller\veiculosController.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Repositorio\EmpresaRepositorio.cs" />
     <Compile Include="Repositorio\EstatisticasRepositorio.cs" />
     <Compile Include="Repositorio\FuncionariosRepositorio.cs" />
+    <Compile Include="Repositorio\ManutencaoRepositorio.cs" />
     <Compile Include="Repositorio\RecibosRepositorio.cs" />
     <Compile Include="Repositorio\VeiculosRepositorio.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -170,6 +172,12 @@
     </Compile>
     <Compile Include="Views\Cadastros\cadastroVeiculos.Designer.cs">
       <DependentUpon>cadastroVeiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cadastros\manutencaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastros\manutencaoForm.Designer.cs">
+      <DependentUpon>manutencaoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Cadastros\reciboForm.cs">
       <SubType>Form</SubType>
@@ -244,6 +252,9 @@
     <EmbeddedResource Include="Views\Cadastros\cadastroVeiculos.resx">
       <DependentUpon>cadastroVeiculos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastros\manutencaoForm.resx">
+      <DependentUpon>manutencaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastros\reciboForm.resx">
       <DependentUpon>reciboForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +278,7 @@
       <DependentUpon>FormEscolha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Relatorios\funcionarios.rdlc" />
+    <EmbeddedResource Include="Views\Relatorios\Manutencao.rdlc" />
     <EmbeddedResource Include="Views\Relatorios\PaginaMestre.resx">
       <DependentUpon>PaginaMestre.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,8 +289,13 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.alugados.datasource" />
+    <None Include="Properties\DataSources\sistemasfrotas.Model.Contadores.datasource" />
+    <None Include="Properties\DataSources\sistemasfrotas.Model.empresas.datasource" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.funcionarios.datasource" />
+    <None Include="Properties\DataSources\sistemasfrotas.Model.logins.datasource" />
+    <None Include="Properties\DataSources\sistemasfrotas.Model.manutencao.datasource" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.recibos.datasource" />
+    <None Include="Properties\DataSources\sistemasfrotas.Model.systemDB.datasource" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.veiculos.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

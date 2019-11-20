@@ -81,7 +81,7 @@ namespace sistemasfrotas.Views
                     cnpj = cbEmpresas.SelectedValue.ToString().Trim(),
                     Status = "Disponivel",
                     Adicionado_em = Convert.ToDateTime(date.Text)
-                });;
+                });
             }
             else
             {

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using sistemasfrotas.Controller;
 using sistemasfrotas.Views.Relatorios;
 using sistemasfrotas.Model;
+using System.Globalization;
 
 namespace sistemasfrotas.Views
 {
@@ -20,6 +21,7 @@ namespace sistemasfrotas.Views
         private empresaController _empresa = new empresaController();
 
         private funcionarioController _controller = new funcionarioController();
+        private exclusaoController exc = new exclusaoController();
 
         private List<empresas> old = new List<empresas>();
         private List<empresas> novo = new List<empresas>();
@@ -101,11 +103,16 @@ namespace sistemasfrotas.Views
         {
             if (MessageBox.Show("Você deseja remover esse funcionario?", "Aviso de remoção de registro",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if(dataGridView1.CurrentRow.Index != -1)
+                if (new Confirmacao().ShowDialog() == DialogResult.OK)
                 {
-                    _controller.RemoverFuncionario(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value));
-                    MessageBox.Show("Removido com sucesso!", "Aviso de remoção de registro", MessageBoxButtons.OK);
-                    PopularGrid();
+                    if (dataGridView1.CurrentRow.Index != -1)
+                    {
+                        exc.ExcluirFuncionario(new funcionarios { 
+                            ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR"))
+                        });
+                        PopularGrid();
+                        Sessao.Update = 1;
+                    }
                 }
             }
         }
@@ -160,6 +167,12 @@ namespace sistemasfrotas.Views
                 old = novo;
                 popularBox();
             }
+            //if (Sessao.Update != null || Sessao.Update != 0)
+            //{
+            //    popularBox();
+            //    PopularGrid();
+            //    Sessao.Update = 0;
+            //}
         }
     }
 }

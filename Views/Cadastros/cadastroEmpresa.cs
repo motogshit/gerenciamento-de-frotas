@@ -141,7 +141,7 @@ namespace sistemasfrotas.Views
                         Numero = txNumero.Text.Trim(),
                         CEP = txCEP.Text.Trim(),
                         Filial = "Não".Trim(),
-                        Adicionado_em = Convert.ToDateTime(DateTime.Now.ToString("ddMMyyyyHHmmss"))
+                        Adicionado_em = DateTime.Now
                     });
                 }
                 else
@@ -163,7 +163,7 @@ namespace sistemasfrotas.Views
                         Estado = txEstado.Text.Trim(),
                         Numero = txNumero.Text.Trim(),
                         CEP = txCEP.Text.Trim(),
-                        Filial = "Não".Trim(),
+                        Filial = "Sim".Trim(),
                         Adicionado_em = DateTime.Now
                     });
 

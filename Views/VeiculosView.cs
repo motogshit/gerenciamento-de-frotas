@@ -31,6 +31,7 @@ namespace sistemasfrotas.Views
 
         private empresaController _empresa = new empresaController();
         private veiculosController __controller = new veiculosController();
+        private int verificador;
         private List<empresas> old = new List<empresas>();
         private List<empresas> novo = new List<empresas>();
 
@@ -202,6 +203,14 @@ namespace sistemasfrotas.Views
                 old = novo;
                 popularBox();
             }
+
+            //if (verificador == null || verificador == 1)
+            //{
+            //    popularBox();
+            //    PopularGrid();
+            //    Sessao.Update = 0;
+            //    verificador = Sessao.Update;
+            //}
         }
 
         private void btManu_Click(object sender, EventArgs e)

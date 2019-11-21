@@ -25,6 +25,7 @@ namespace sistemasfrotas.Views
             }
         }
         private empresaController c = new empresaController();
+        private exclusaoController exc = new exclusaoController();
         private CultureInfo cultureInfo = new CultureInfo("pt-BR");
         public EmpresaView()
         {
@@ -97,11 +98,22 @@ namespace sistemasfrotas.Views
         {
             if (MessageBox.Show(Properties.Resources.PerguntaExclusao,Properties.Resources.Aviso_Exclusao, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (dataGridView1.CurrentRow.Index != -1)
+                if (new Confirmacao().ShowDialog() == DialogResult.OK)
                 {
-                    c.RemoverEmpresa(Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value,cultureInfo));
-                    MessageBox.Show(Properties.Resources.PerguntaExclusao, Properties.Resources.Aviso_Exclusao, MessageBoxButtons.OK);
-                    PopularGrid();                                         
+                    if (dataGridView1.CurrentRow.Index != -1)
+                    {
+                        exc.ExcluirEmpresa(new Model.empresas
+                        {
+                            ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, cultureInfo)
+                        });
+                        MessageBox.Show("Dados excluidos","Alerta de exclusão de dados",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PopularGrid();
+                        Sessao.Update = 1;
+                    }
+                }
+                else
+                {
+                    PopularGrid();
                 }
                     
             }

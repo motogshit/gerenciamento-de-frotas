@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using sistemasfrotas.Controller;
 using sistemasfrotas.Views;
 
 namespace sistemasfrotas
@@ -16,6 +17,17 @@ namespace sistemasfrotas
         public Dashboard()
         {
             InitializeComponent();
+            lbUsuario.Text = "Usuário: " + Sessao.Usuario;
+            if(Sessao.NivelAcesso == 1)
+            {
+                lbAcesso.Text = "Nivel de acesso: Básico";
+            }else if(Sessao.NivelAcesso == 2)
+            {
+                lbAcesso.Text = "Nivel de acesso: Intermediario";
+            }else if(Sessao.NivelAcesso == 3)
+            {
+                lbAcesso.Text = "Nivel de acesso: Gerenciador do Sistema";
+            }
             
             if (!Container1.Controls.Contains(EmpresaView.Instance))
             {

@@ -492,6 +492,7 @@
             // 
             this.txTel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.txTel2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txTel2.Culture = new System.Globalization.CultureInfo("en-US");
             this.txTel2.ForeColor = System.Drawing.Color.White;
             this.txTel2.Location = new System.Drawing.Point(239, 107);
             this.txTel2.Mask = "(99) 9999 - 9999";
@@ -555,6 +556,7 @@
             // 
             this.txSede.BackColor = System.Drawing.Color.MidnightBlue;
             this.txSede.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txSede.Culture = new System.Globalization.CultureInfo("en-US");
             this.txSede.ForeColor = System.Drawing.Color.White;
             this.txSede.Location = new System.Drawing.Point(239, 157);
             this.txSede.Mask = "99.999.999 / 9999-99";

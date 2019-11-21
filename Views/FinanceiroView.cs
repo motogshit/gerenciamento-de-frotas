@@ -100,6 +100,13 @@ namespace sistemasfrotas.Views
                 old = novo;
                 popularBox();
             }
+
+            //if (Sessao.Update != null || Sessao.Update != 0)
+            //{
+            //    popularBox();
+            //    popularGrid();
+            //    Sessao.Update = 0;
+            //}
         }
     }
 }

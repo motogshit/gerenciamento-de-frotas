@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sistemasfrotas.Model;
+using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
 {
@@ -21,13 +22,18 @@ namespace sistemasfrotas.Views
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            if(db.logins.AsNoTracking().FirstOrDefault(x => x.User == txUser.Text && x.Password == txPw.Text) == null)
+            logins dados = db.logins.AsNoTracking().FirstOrDefault(x => x.User == txUser.Text && x.Password == txPw.Text);
+
+            if (dados == null)
             {
                 MessageBox.Show("Usuario ou senhas incorretos","Falha ao realizar login",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
             {
+                Sessao.NivelAcesso = dados.AcessLevel;
+                Sessao.Usuario = dados.User;
+                Sessao.Senha = dados.Password;
                 new Dashboard().Show();
                 Hide();
             }

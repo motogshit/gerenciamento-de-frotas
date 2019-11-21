@@ -117,10 +117,12 @@
     <Compile Include="Controller\alugadosController.cs" />
     <Compile Include="Controller\empresaController.cs" />
     <Compile Include="Controller\estatisticasController.cs" />
+    <Compile Include="Controller\exclusaoController.cs" />
     <Compile Include="Controller\funcionarioController.cs" />
     <Compile Include="Controller\manutencaoController.cs" />
     <Compile Include="Controller\recibosController.cs" />
     <Compile Include="Controller\relatoriosController.cs" />
+    <Compile Include="Controller\Sessao.cs" />
     <Compile Include="Controller\veiculosController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -147,6 +149,7 @@
     <Compile Include="Repositorio\FuncionariosRepositorio.cs" />
     <Compile Include="Repositorio\ManutencaoRepositorio.cs" />
     <Compile Include="Repositorio\RecibosRepositorio.cs" />
+    <Compile Include="Repositorio\RemoverRepositorio.cs" />
     <Compile Include="Repositorio\VeiculosRepositorio.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\Cadastros\alugarVeiculo.cs">
@@ -184,6 +187,12 @@
     </Compile>
     <Compile Include="Views\Cadastros\reciboForm.Designer.cs">
       <DependentUpon>reciboForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Confirmacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Confirmacao.Designer.cs">
+      <DependentUpon>Confirmacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EmpresaView.cs">
       <SubType>UserControl</SubType>
@@ -257,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastros\reciboForm.resx">
       <DependentUpon>reciboForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Confirmacao.resx">
+      <DependentUpon>Confirmacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmpresaView.resx">
       <DependentUpon>EmpresaView.cs</DependentUpon>

@@ -228,26 +228,26 @@
             // lbAcesso
             // 
             this.lbAcesso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbAcesso.AutoSize = true;
             this.lbAcesso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAcesso.ForeColor = System.Drawing.Color.White;
-            this.lbAcesso.Location = new System.Drawing.Point(851, 40);
+            this.lbAcesso.Location = new System.Drawing.Point(787, 36);
             this.lbAcesso.Name = "lbAcesso";
-            this.lbAcesso.Size = new System.Drawing.Size(191, 17);
+            this.lbAcesso.Size = new System.Drawing.Size(253, 21);
             this.lbAcesso.TabIndex = 1;
-            this.lbAcesso.Text = "Nivel de Acesso: Administrador";
+            this.lbAcesso.Text = "Nivel de acesso: Gerenciador do sistema";
+            this.lbAcesso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbUsuario
             // 
             this.lbUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbUsuario.AutoSize = true;
             this.lbUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbUsuario.Location = new System.Drawing.Point(914, 11);
+            this.lbUsuario.Location = new System.Drawing.Point(790, 11);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(128, 25);
+            this.lbUsuario.Size = new System.Drawing.Size(252, 25);
             this.lbUsuario.TabIndex = 0;
             this.lbUsuario.Text = "Usuario: Teste";
+            this.lbUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Container1
             // 

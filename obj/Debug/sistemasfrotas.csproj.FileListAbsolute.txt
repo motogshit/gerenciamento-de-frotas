@@ -239,3 +239,4 @@ C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\bin\Debug\zh-CHT\Micro
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.csproj.CopyComplete
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.csprojAssemblyReference.cache
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Views.Cadastros.manutencaoForm.resources
+C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Views.Confirmacao.resources

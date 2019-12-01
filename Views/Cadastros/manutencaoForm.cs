@@ -21,13 +21,16 @@ namespace sistemasfrotas.Views.Cadastros
         private veiculos obj = new veiculos();
         private string _state;
         private int _id;
-
+        private Counter observer;
         public manutencaoForm(string s , int ID)
         {
             InitializeComponent();
             _controller = new manutencaoController();
             _veiculos = new veiculosController();
             _recibo = new recibosController();
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(FinanceiroView.Instance);
             _state = s;
             obj = _veiculos.ObterPorId(ID);
             if(obj.Status == "Em Manutenção")
@@ -69,6 +72,7 @@ namespace sistemasfrotas.Views.Cadastros
                 _recibo.AtualizarReciboManutencao(recibo);
                 _recibo.Salvar();
 
+                observer.Increment();
             }
             else
             {
@@ -105,6 +109,8 @@ namespace sistemasfrotas.Views.Cadastros
                     data = DateTime.Now
                 });
                 _recibo.Salvar();
+
+                observer.Increment();
             }
         }
 

@@ -14,7 +14,7 @@ using System.Globalization;
 
 namespace sistemasfrotas.Views
 {
-    public partial class FuncionariosView : UserControl
+    public partial class FuncionariosView : UserControl, IObserver
     {
         private static FuncionariosView _instance;
 
@@ -22,9 +22,7 @@ namespace sistemasfrotas.Views
 
         private funcionarioController _controller = new funcionarioController();
         private exclusaoController exc = new exclusaoController();
-
-        private List<empresas> old = new List<empresas>();
-        private List<empresas> novo = new List<empresas>();
+        private Counter observer;
 
         public static FuncionariosView Instance
         {
@@ -44,6 +42,11 @@ namespace sistemasfrotas.Views
         public FuncionariosView()
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(this);
+            observer.RegisterObserver(FinanceiroView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             popularBox();
             PopularGrid();
         }
@@ -110,8 +113,8 @@ namespace sistemasfrotas.Views
                         exc.ExcluirFuncionario(new funcionarios { 
                             ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR"))
                         });
-                        PopularGrid();
-                        Sessao.Update = 1;
+                        observer.Increment();
+                        
                     }
                 }
             }
@@ -152,27 +155,13 @@ namespace sistemasfrotas.Views
             new FormEscolha("Funcionarios").Show();
         }
 
-        private void cbUpdater_Tick(object sender, EventArgs e)
+        public void Update(int count)
         {
-            
-
-            novo = _empresa.ListarTodos();
-
-            if (old.Count() == novo.Count())
+            if(count > 0)
             {
-
-            }
-            else
-            {
-                old = novo;
                 popularBox();
+                PopularGrid();
             }
-            //if (Sessao.Update != null || Sessao.Update != 0)
-            //{
-            //    popularBox();
-            //    PopularGrid();
-            //    Sessao.Update = 0;
-            //}
         }
     }
 }

@@ -15,9 +15,13 @@ namespace sistemasfrotas.Views.Cadastros
     public partial class reciboForm : Form
     {
         private recibosController _controller = new recibosController();
+        private Counter observer;
         public reciboForm()
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(FinanceiroView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
         }
 
         private void txFun_KeyPress(object sender, KeyPressEventArgs e)
@@ -81,6 +85,7 @@ namespace sistemasfrotas.Views.Cadastros
             {
                 _controller.AdicionarRecibo(formulario);
                 _controller.Salvar();
+                observer.Increment();
                 Close();
             }
             

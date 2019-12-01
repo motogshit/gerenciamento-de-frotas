@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.btAdicionar = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
             this.btRelatorio = new System.Windows.Forms.Button();
-            this.cbUpdater = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,11 +181,6 @@
             this.btRelatorio.UseVisualStyleBackColor = false;
             this.btRelatorio.Click += new System.EventHandler(this.btRelatorio_Click);
             // 
-            // cbUpdater
-            // 
-            this.cbUpdater.Enabled = true;
-            this.cbUpdater.Tick += new System.EventHandler(this.cbUpdater_Tick);
-            // 
             // FuncionariosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -220,6 +213,5 @@
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.Button btRelatorio;
-        private System.Windows.Forms.Timer cbUpdater;
     }
 }

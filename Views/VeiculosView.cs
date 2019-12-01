@@ -9,7 +9,7 @@ using sistemasfrotas.Views.Cadastros;
 
 namespace sistemasfrotas.Views
 {
-    public partial class VeiculosView : UserControl
+    public partial class VeiculosView : UserControl, IObserver
     {
         private static VeiculosView _instance;
 
@@ -31,9 +31,6 @@ namespace sistemasfrotas.Views
 
         private empresaController _empresa = new empresaController();
         private veiculosController __controller = new veiculosController();
-        private int verificador;
-        private List<empresas> old = new List<empresas>();
-        private List<empresas> novo = new List<empresas>();
 
         public VeiculosView()
         {
@@ -190,29 +187,6 @@ namespace sistemasfrotas.Views
             new FormEscolha("Alugados").Show();
         }
 
-        private void cbUpdater_Tick(object sender, EventArgs e)
-        {
-            novo = _empresa.ListarTodos();
-
-            if (old == novo)
-            {
-
-            }
-            else
-            {
-                old = novo;
-                popularBox();
-            }
-
-            //if (verificador == null || verificador == 1)
-            //{
-            //    popularBox();
-            //    PopularGrid();
-            //    Sessao.Update = 0;
-            //    verificador = Sessao.Update;
-            //}
-        }
-
         private void btManu_Click(object sender, EventArgs e)
         {
             new manutencaoForm("", Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, new CultureInfo("pt-BR"))).Show();
@@ -221,6 +195,15 @@ namespace sistemasfrotas.Views
         private void btManutencao_Click(object sender, EventArgs e)
         {
             new FormEscolha("Manutencao").Show();
+        }
+
+        public void Update(int count)
+        {
+            if(count > 0)
+            {
+                popularBox();
+                PopularGrid();
+            }
         }
     }
 }

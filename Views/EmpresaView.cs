@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace sistemasfrotas.Views
 {
-    public partial class EmpresaView : UserControl
+    public partial class EmpresaView : UserControl, IObserver
     {
         private static EmpresaView _instance;
 
@@ -24,25 +24,21 @@ namespace sistemasfrotas.Views
                 }
             }
         }
+        private Counter observer;
         private empresaController c = new empresaController();
         private exclusaoController exc = new exclusaoController();
         private CultureInfo cultureInfo = new CultureInfo("pt-BR");
         public EmpresaView()
         {
             InitializeComponent();
+            observer = new Counter();
+            //Registro do observador, todas as instancias das view foram registradas. Quando houver um Update no observador todas elas vão ser atualizadas
+            observer.RegisterObserver(this);
+            observer.RegisterObserver(FuncionariosView.Instance);
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(FinanceiroView.Instance);
             //Gatilho para carregar informações no DataGridView0
             PopularGrid();
-
-            //EmpresaRepositorio emp = new EmpresaRepositorio();
-            //chart1.DataSource = emp.Top5();
-            //chart1.Series.Add("Teste");
-            //chart1.Series.RemoveAt(0);
-            //chart1.Series["Teste"].XValueMember = "razao";
-            //chart1.Series["Teste"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            //chart1.Series["Teste"].YValueMembers = "count";
-            //chart1.Series["Teste"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            
-            //chart1.DataBind();
         }
 
         public void PopularGrid()
@@ -60,6 +56,7 @@ namespace sistemasfrotas.Views
             {
                 //Apos inserir as informações atualiza o data grid
                 PopularGrid();
+                observer.Increment();
                 form.Dispose();
             }
             else
@@ -83,7 +80,7 @@ namespace sistemasfrotas.Views
                 {
                     PopularGrid();
                     form.Dispose();
-                    form = null;
+                    observer.Increment();
                 }
                 else
                 {
@@ -107,21 +104,22 @@ namespace sistemasfrotas.Views
                             ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value, cultureInfo)
                         });
                         MessageBox.Show("Dados excluidos","Alerta de exclusão de dados",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        PopularGrid();
-                        Sessao.Update = 1;
+                        observer.Increment();
                     }
                 }
                 else
                 {
-                    PopularGrid();
                 }
                     
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void Update(int count)
         {
-           
+            if(count > 0)
+            {
+                PopularGrid();
+            }
         }
     }
 }

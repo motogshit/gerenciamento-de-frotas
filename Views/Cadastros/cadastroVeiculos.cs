@@ -20,10 +20,13 @@ namespace sistemasfrotas.Views
         private empresaController _empresa = new empresaController();
         private veiculosController _controller = new veiculosController();
         private funcionarioController _funcionario = new funcionarioController();
-
+        private Counter observer;
         public cadastroVeiculos()
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
 
             cbEmpresas.ValueMember = "CNPJ";
             cbEmpresas.DisplayMember = "Razao";
@@ -36,6 +39,9 @@ namespace sistemasfrotas.Views
         public cadastroVeiculos(int id, string s)
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             _state = s;
             _id = id;
             editar(id);
@@ -82,6 +88,7 @@ namespace sistemasfrotas.Views
                     Status = "Disponivel",
                     Adicionado_em = Convert.ToDateTime(date.Text)
                 });
+                observer.Increment();
             }
             else
             {
@@ -102,6 +109,7 @@ namespace sistemasfrotas.Views
                     Status = "Disponivel",
                     Adicionado_em = DateTime.Now,
                 });
+                observer.Increment();
             }
             
         }

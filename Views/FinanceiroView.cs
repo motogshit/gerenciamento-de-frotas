@@ -7,14 +7,12 @@ using sistemasfrotas.Controller;
 using sistemasfrotas.Model;
 namespace sistemasfrotas.Views
 {
-    public partial class FinanceiroView : UserControl
+    public partial class FinanceiroView : UserControl, IObserver
     {
         private recibosController _controller = new recibosController();
         private empresaController _empresa = new empresaController();
-        private List<empresas> old = new List<empresas>();
-        private List<empresas> novo = new List<empresas>();
         private static FinanceiroView _instance;
-
+        private Counter observer;
         public static FinanceiroView Instance
         {
             get
@@ -87,26 +85,13 @@ namespace sistemasfrotas.Views
 
         }
 
-        private void cbUpdater_Tick(object sender, EventArgs e)
+        public void Update(int count)
         {
-            novo = _empresa.ListarTodos();
-
-            if (old == novo)
+            if(count > 0)
             {
-
-            }
-            else
-            {
-                old = novo;
                 popularBox();
-            }
-
-            //if (Sessao.Update != null || Sessao.Update != 0)
-            //{
-            //    popularBox();
-            //    popularGrid();
-            //    Sessao.Update = 0;
-            //}
+                popularGrid();
+            }   
         }
     }
 }

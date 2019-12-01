@@ -11,7 +11,6 @@ namespace sistemasfrotas.Controller
         private static int _nivelAcesso;
         private static string _usuario;
         private static string _senha;
-        private static int _update;
 
         public static string Usuario
         {
@@ -29,11 +28,6 @@ namespace sistemasfrotas.Controller
             get { return Sessao._nivelAcesso; }
             set { Sessao._nivelAcesso = value; }
         }
-
-        public static int Update
-        {
-            get { return Sessao.Update; }
-            set { Sessao._update = value; }
-        }
+        
     }
 }

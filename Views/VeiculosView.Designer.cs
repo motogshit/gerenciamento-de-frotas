@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btSave = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@
             this.btDevolve = new System.Windows.Forms.Button();
             this.btAlugados = new System.Windows.Forms.Button();
             this.btVeiculos = new System.Windows.Forms.Button();
-            this.cbUpdater = new System.Windows.Forms.Timer(this.components);
             this.btManu = new System.Windows.Forms.Button();
             this.btManutencao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -112,7 +110,6 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.Crimson;
             this.checkBox1.Location = new System.Drawing.Point(317, 50);
@@ -267,10 +264,6 @@
             this.btVeiculos.UseVisualStyleBackColor = false;
             this.btVeiculos.Click += new System.EventHandler(this.btVeiculos_Click);
             // 
-            // cbUpdater
-            // 
-            this.cbUpdater.Tick += new System.EventHandler(this.cbUpdater_Tick);
-            // 
             // btManu
             // 
             this.btManu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -352,7 +345,6 @@
         private System.Windows.Forms.Button btDevolve;
         private System.Windows.Forms.Button btAlugados;
         private System.Windows.Forms.Button btVeiculos;
-        private System.Windows.Forms.Timer cbUpdater;
         private System.Windows.Forms.Button btManu;
         private System.Windows.Forms.Button btManutencao;
     }

@@ -14,12 +14,17 @@ namespace sistemasfrotas.Views
         private funcionarioController _controller = new funcionarioController();
         private empresaController _empresa = new empresaController();
         private DateTime data;
+        private Counter observer;
 
         public cadastroFuncionarios()
         {
             InitializeComponent();
-            
-                cbEmpresa.ValueMember = "CNPJ";
+
+            observer = new Counter();
+            observer.RegisterObserver(FuncionariosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
+
+            cbEmpresa.ValueMember = "CNPJ";
 
                 cbEmpresa.DisplayMember = "Razao";
                 
@@ -30,6 +35,9 @@ namespace sistemasfrotas.Views
         public cadastroFuncionarios(int id,string state)
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(FuncionariosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             clear();
             _state = state;
             _id = id;
@@ -79,7 +87,7 @@ namespace sistemasfrotas.Views
                     CNPJ_Empresa = cbEmpresa.SelectedValue.ToString(),
                     Adicionado_em = data
                 });
-                
+                observer.Increment();
             }
             else
             {
@@ -101,7 +109,7 @@ namespace sistemasfrotas.Views
                         CNPJ_Empresa = cbEmpresa.SelectedValue.ToString(),
                         Adicionado_em = DateTime.Now
                     });
-                    
+                    observer.Increment();
                 }
                 else
                 {

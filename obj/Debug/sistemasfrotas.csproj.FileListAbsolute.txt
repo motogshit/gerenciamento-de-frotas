@@ -240,3 +240,5 @@ C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrot
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.csprojAssemblyReference.cache
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Views.Cadastros.manutencaoForm.resources
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Views.Confirmacao.resources
+C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\sistemasfrotas.Views.Cadastros.manutencaoForm.resources
+C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\sistemasfrotas.Views.Confirmacao.resources

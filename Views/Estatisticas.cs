@@ -5,7 +5,7 @@ using sistemasfrotas.Controller;
 
 namespace sistemasfrotas.Views
 {
-    public partial class Estatisticas : UserControl
+    public partial class Estatisticas : UserControl, IObserver
     {
 
         private static Estatisticas _instance;
@@ -86,8 +86,7 @@ namespace sistemasfrotas.Views
             chart5.Series["Teste"].IsValueShownAsLabel = true;
             chart5.Titles.Add("Grafico das Empresas com mais despesas");
         }
-
-        private void updCharts_Tick(object sender, EventArgs e)
+        public void Update(int count)
         {
             updateCharts();
         }

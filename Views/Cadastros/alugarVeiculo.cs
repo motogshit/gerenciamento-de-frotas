@@ -17,6 +17,7 @@ namespace sistemasfrotas.Views
         private alugadosController _controller = new alugadosController();
         private funcionarioController _funcionario = new funcionarioController();
         private veiculosController _veiculos = new veiculosController();
+        private Counter observer;
 
         private CultureInfo cultureInfo = new CultureInfo("pt-BR");
         public alugarVeiculo()
@@ -25,11 +26,17 @@ namespace sistemasfrotas.Views
             this.Size = new System.Drawing.Size(676, 228);
             this.MaximumSize = new System.Drawing.Size(676, 228);
             this.MinimumSize = new System.Drawing.Size(676, 228);
-            
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
+
         }
         public alugarVeiculo(int id, string s)
         {
             InitializeComponent();
+            observer = new Counter();
+            observer.RegisterObserver(VeiculosView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             this.Size = new System.Drawing.Size(676, 319);
             this.MaximumSize = new System.Drawing.Size(676, 319);
             this.MinimumSize = new System.Drawing.Size(676, 319);
@@ -124,6 +131,7 @@ namespace sistemasfrotas.Views
                 updater.Km_Atual = txKmEnt.Text.Trim();
                 updater.Status = "Disponivel".Trim();
                 _veiculos.Atualizar(updater);
+                observer.Increment();
             }
             else
             {
@@ -148,6 +156,7 @@ namespace sistemasfrotas.Views
                         updater = _veiculos.ObterPorId(Convert.ToInt32(txCodV.Text,cultureInfo));
                         updater.Status = "Em Uso";
                         _veiculos.Atualizar(updater);
+                        observer.Increment();
                     }
                     else
                     {

@@ -11,7 +11,7 @@ namespace sistemasfrotas.Controller
         private static int _nivelAcesso;
         private static string _usuario;
         private static string _senha;
-
+        //Classe estatica, valores definidos aqui podem ser acessados de qualquer lugar
         public static string Usuario
         {
             get { return Sessao._usuario; }

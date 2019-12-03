@@ -56,7 +56,8 @@ namespace sistemasfrotas.Views
                         dataGridView1.DataSource = __controller.ListarPorEmpresa(cbEmpresas.SelectedValue.ToString());    
                     }catch(System.NullReferenceException ex)
                     {
-
+                        dataGridView1.DataSource = null;
+                        cbEmpresas.Text = "";
                     }
                 }
             

@@ -5,21 +5,28 @@ using System.Globalization;
 
 namespace sistemasfrotas.Views
 {
+    //Este controle de usuario tambem suporta a interface IObserver que é responsavel por atualizar as informações dos formularios
     public partial class EmpresaView : UserControl, IObserver
     {
+        //Cria uma variavel privada estatica do Controle de usuario EmpresaView
         private static EmpresaView _instance;
-
+        //Cria uma variavel publica estatica do controle de usuario EmpresaView e possui um setter
         public static EmpresaView Instance
         {
+            //Quando o método GET é chamado
             get
             {
+                //Verifica se a instancia privada esta nula ou não inicializada
                 if(_instance == null)
                 {
+                    //Caso esteja nula adiciona uma nova instancia do controle de usuario
                     _instance = new EmpresaView();
+                    //Retorna o valor de _instance
                     return _instance;
                 }
                 else
                 {
+                    //Caso o valor de _instance não seja nulo, retorna o valor de _instance
                     return _instance;
                 }
             }
@@ -37,6 +44,7 @@ namespace sistemasfrotas.Views
             observer.RegisterObserver(FuncionariosView.Instance);
             observer.RegisterObserver(VeiculosView.Instance);
             observer.RegisterObserver(FinanceiroView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             //Gatilho para carregar informações no DataGridView0
             PopularGrid();
         }

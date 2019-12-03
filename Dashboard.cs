@@ -17,15 +17,20 @@ namespace sistemasfrotas
         public Dashboard()
         {
             InitializeComponent();
+            //Carrega o nome do usuario na label
             lbUsuario.Text = "Usuário: " + Sessao.Usuario;
+            //Verifica o nivel de acesso para Exibir na Label
             if(Sessao.NivelAcesso == 1)
             {
+                //Nivel basico não pode remover informações
                 lbAcesso.Text = "Nivel de acesso: Básico";
             }else if(Sessao.NivelAcesso == 2)
             {
+                //Nivel Intermediario não pode remover informações
                 lbAcesso.Text = "Nivel de acesso: Intermediario";
             }else if(Sessao.NivelAcesso == 3)
             {
+                //Nivel Administrador(Gerenciador do sistema) pode remover informações(ACESSO TOTAL)
                 lbAcesso.Text = "Nivel de acesso: Gerenciador do Sistema";
             }
             

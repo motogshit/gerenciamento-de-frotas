@@ -8,6 +8,7 @@ namespace sistemasfrotas
 {
     public interface IObserver
     {
+        //Métodos do observador
         void Update(int count);
     }
 }

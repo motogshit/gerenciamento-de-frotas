@@ -83,33 +83,39 @@ namespace sistemasfrotas.Views
             if(!string.IsNullOrEmpty(txCodV.Text))
             {
                 _id = Convert.ToInt32(txCodV.Text, cultureInfo);
+                vei = _veiculos.ObterPorId(_id);
+                if (vei == null)
+                {
+                    MessageBox.Show("Erro ao buscar veiculo", "Veiculo não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txPlaca.Text = vei.Placa_Veiculo;
+                    txKmIni.Text = vei.Km_Atual;
+                    lbStatus.Text = vei.Status.ToUpper(cultureInfo);
+                }
             }
-            vei = _veiculos.ObterPorId(_id);
-            if(vei == null)
-            {
-                MessageBox.Show("Erro ao buscar veiculo","Veiculo não encontrado", MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            else
-            {
-                txPlaca.Text = vei.Placa_Veiculo;
-                txKmIni.Text = vei.Km_Atual;
-                lbStatus.Text = vei.Status.ToUpper(cultureInfo);
-            }
+            
         }
 
         private void txCodF_TextChanged(object sender, EventArgs e)
         {
             funcionarios fun;
-            _id = Convert.ToInt32(txCodF.Text, cultureInfo);
-            fun = _funcionario.BuscarPorId(_id);
-            if (fun == null)
+            
+            if (!string.IsNullOrEmpty(txCodV.Text))
             {
-                MessageBox.Show(Resources.AvisoIDFuncionario,Resources.ErroProcurarFuncionario, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _id = Convert.ToInt32(txCodF.Text, cultureInfo);
+                fun = _funcionario.BuscarPorId(_id);
+                if (fun == null)
+                {
+                    MessageBox.Show(Resources.AvisoIDFuncionario, Resources.ErroProcurarFuncionario, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txNome.Text = fun.Nome;
+                }
             }
-            else
-            {
-                txNome.Text = fun.Nome;
-            }
+            
         }
 
         private void btSave_Click(object sender, EventArgs e)

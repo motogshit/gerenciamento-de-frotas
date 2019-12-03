@@ -131,7 +131,15 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\alugados.cs" />
     <Compile Include="Model\Contadores.cs" />
+    <Compile Include="Model\empresas.cs" />
+    <Compile Include="Model\funcionarios.cs" />
+    <Compile Include="Model\logins.cs" />
+    <Compile Include="Model\manutencao.cs" />
+    <Compile Include="Model\recibos.cs" />
+    <Compile Include="Model\systemDB.cs" />
+    <Compile Include="Model\veiculos.cs" />
     <Compile Include="Observer\IObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,6 +310,7 @@
     <EmbeddedResource Include="Views\VeiculosView.resx">
       <DependentUpon>VeiculosView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.alugados.datasource" />
     <None Include="Properties\DataSources\sistemasfrotas.Model.Contadores.datasource" />

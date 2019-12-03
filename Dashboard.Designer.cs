@@ -217,10 +217,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(1048, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(1048, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -273,6 +272,7 @@
             this.Controls.Add(this.Container1);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.MenuPanel);
+            this.MinimumSize = new System.Drawing.Size(1382, 807);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

@@ -64,7 +64,8 @@ namespace sistemasfrotas.Views
                     dataGridView1.DataSource = _controller.ObterPorEmpresa(cbEmpresa.SelectedValue.ToString());
                 }catch(System.NullReferenceException ex)
                 {
-
+                    dataGridView1.DataSource = null;
+                    cbEmpresa.Text = "";
                 }
             }
         }

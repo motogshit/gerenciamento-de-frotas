@@ -65,7 +65,8 @@ namespace sistemasfrotas.Views
                     }
                     catch(System.NullReferenceException ex)
                     {
-
+                        dataGridView1.DataSource = null;
+                        comboBox1.Text = "";
                     }
                 }
         }

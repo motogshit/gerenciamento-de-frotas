@@ -10,9 +10,6 @@ namespace sistemasfrotas.Views
 
         private static Estatisticas _instance;
 
-        public delegate void onClick(object sender, EventArgs e);
-
-        public event onClick Atualizar;
         public static Estatisticas Instance
         {
             get
@@ -28,29 +25,35 @@ namespace sistemasfrotas.Views
                 }
             }
         }
-        private estatisticasController c = new estatisticasController();
+        private estatisticasController _controller = new estatisticasController();
         
         public Estatisticas()
         {
             InitializeComponent();
             updateCharts();
-            c.GetCount();
+            _controller.GetCount();
         }
 
         private void updateCharts()
         {
+            //Definição da serie a ser usada e limpa todos os pontos antes de inserir informações
             chart1.Series["Teste"].Points.Clear();
+            //Limpeza dos titulos dos graficos
             chart1.Titles.Clear();
-            foreach (var entradas in c.ObterPorFuncionarios())
+            //Busca informações no controlador de estatisticas usando o método (OBTER POR FUNCIONARIO) e armazena num var
+            foreach (var entradas in _controller.ObterPorFuncionarios())
             {
+                //Adiciona o ponto XY (Nome, Valor) do grafico com base na informação do indice de (ENTRADAS) atual
                 chart1.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Count);
             }
+            //Define que o valor X pode ser usado como label(IDENTIFICACAO)
             chart1.Series["Teste"].IsValueShownAsLabel = true;
+            //Adiciona o titulo do gráfico
             chart1.Titles.Add("Grafico das Empresas com mais funcionarios");
 
             chart2.Series["Teste"].Points.Clear();
             chart2.Titles.Clear();
-            foreach (var entradas in c.ObterPorMarca())
+            foreach (var entradas in _controller.ObterPorMarca())
             {
                 chart2.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Count);
             }
@@ -59,7 +62,7 @@ namespace sistemasfrotas.Views
 
             chart3.Series["Teste"].Points.Clear();
             chart3.Titles.Clear();
-            foreach (var entradas in c.ObterPorModelo())
+            foreach (var entradas in _controller.ObterPorModelo())
             {
                 chart3.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Count);
             }
@@ -68,7 +71,7 @@ namespace sistemasfrotas.Views
 
             chart4.Series["Teste"].Points.Clear();
             chart4.Titles.Clear();
-            foreach (var entradas in c.ObterPorDisponibilidade())
+            foreach (var entradas in _controller.ObterPorDisponibilidade())
             {
                 chart4.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Count);
             }
@@ -79,7 +82,7 @@ namespace sistemasfrotas.Views
             //Grafico 5
             chart5.Series["Teste"].Points.Clear();
             chart5.Titles.Clear();
-            foreach (var entradas in c.GetCount())
+            foreach (var entradas in _controller.GetCount())
             {
                 chart5.Series["Teste"].Points.AddXY(entradas.Texto, entradas.Valor);
             }

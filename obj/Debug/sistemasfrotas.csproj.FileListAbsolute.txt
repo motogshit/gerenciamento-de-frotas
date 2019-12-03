@@ -128,7 +128,6 @@ C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\RdlCompile.cac
 C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\RdlCompile.compiled
 C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\sistemasfrotas.Views.Relatorios.FormEscolha.resources
 C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\sistemasfrotas.Views.Login.resources
-C:\Users\Eduardo\Desktop\gerenciamento-de-frotas-master\obj\Debug\sistemasfrotas.csprojAssemblyReference.cache
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Dashboard.resources
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Properties.Resources.resources
 C:\Users\Eduardo\Documents\GitHub\gerenciamento-de-frotas\obj\Debug\sistemasfrotas.Views.alugarVeiculo.resources

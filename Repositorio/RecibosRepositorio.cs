@@ -12,23 +12,25 @@ namespace sistemasfrotas.Repositorio
     class RecibosRepositorio
     {
         private systemDB dbContext;
+        //Construtor da classe e instancia da conexão(CONTEXTO) do banco de dados
         public RecibosRepositorio()
         {
             dbContext = new systemDB();
         }
-
+        //Lista todos os recibos
         public List<recibos> GetAllData()
         {
             return dbContext.recibos.AsNoTracking().ToList();
         }
-
+        //Lista os recibos no DataGrid por empresa
         public List<recibos> GetDataByCompany(string s)
         {
             return dbContext.recibos.AsNoTracking().Where(x => x.CNPJ == s).ToList();
         }
-
+        //Verifica se o funcionario possui um veiculo alugado antes de adicionar um recibo
         public recibos GetData(int codigo)
         {
+            
             alugados dadosFuncionario = new alugados();
             
             veiculos dadosVeiculos = new veiculos();
@@ -59,24 +61,27 @@ namespace sistemasfrotas.Repositorio
 
             return retorno;
         }
+        //Adiciona o recibo
         public void AddData(recibos dados)
         {
             dbContext.recibos.Add(dados);
         }
+        //Salva alterações
         public void SaveChanges()
         {
             dbContext.SaveChanges();
         }
+        //Retorna um relatorio de recibos baseado no CNPJ da empresa
         public List<recibos> ObterRelatorioPorEmpresa(string s, DateTime d1, DateTime d2)
         {
             return dbContext.recibos.AsNoTracking().Where(x => x.CNPJ == s && EntityFunctions.TruncateTime(x.data) >= d1 && EntityFunctions.TruncateTime(x.data) <= d2).ToList();
         }
-
+        //Atualiza as informações do rebico(USADO APENAS NO SETOR DE MANUTENÇÃO)
         public void UpdateValue(recibos dados)
         {
             dbContext.Set<recibos>().AddOrUpdate(dados);
         }
-
+        //Chamado quando um veiculo é removido do status de "EM MANUTENÇÃO"
         public recibos GetByMainCode(int id)
         {
             return dbContext.recibos.FirstOrDefault(x => x.CodigoManutencao == id);

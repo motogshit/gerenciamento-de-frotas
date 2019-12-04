@@ -102,7 +102,7 @@ namespace sistemasfrotas.Views
         {
             funcionarios fun;
             
-            if (!string.IsNullOrEmpty(txCodV.Text))
+            if (!string.IsNullOrEmpty(txCodF.Text))
             {
                 _id = Convert.ToInt32(txCodF.Text, cultureInfo);
                 fun = _funcionario.BuscarPorId(_id);

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sistemasfrotas", "sistemasfrotas.csproj", "{05CA960B-EE51-4B09-9935-CD0CB9E71C44}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "..\Setup2\Setup2.vdproj", "{1FD55331-227A-4F31-8FF0-E0981C7B680B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "..\..\Documents\GitHub\gerenciamento-de-frotas\Instalador\Instalador.vdproj", "{3110B1EC-479B-4784-BA64-38369035E2F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{05CA960B-EE51-4B09-9935-CD0CB9E71C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05CA960B-EE51-4B09-9935-CD0CB9E71C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05CA960B-EE51-4B09-9935-CD0CB9E71C44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FD55331-227A-4F31-8FF0-E0981C7B680B}.Debug|Any CPU.ActiveCfg = Debug
-		{1FD55331-227A-4F31-8FF0-E0981C7B680B}.Release|Any CPU.ActiveCfg = Release
+		{3110B1EC-479B-4784-BA64-38369035E2F8}.Debug|Any CPU.ActiveCfg = Debug
+		{3110B1EC-479B-4784-BA64-38369035E2F8}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

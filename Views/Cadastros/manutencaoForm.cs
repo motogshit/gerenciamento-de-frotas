@@ -31,6 +31,7 @@ namespace sistemasfrotas.Views.Cadastros
             observer = new Counter();
             observer.RegisterObserver(VeiculosView.Instance);
             observer.RegisterObserver(FinanceiroView.Instance);
+            observer.RegisterObserver(Estatisticas.Instance);
             _state = s;
             obj = _veiculos.ObterPorId(ID);
             if(obj.Status == "Em Manutenção")
@@ -73,6 +74,7 @@ namespace sistemasfrotas.Views.Cadastros
                 _recibo.Salvar();
 
                 observer.Increment();
+                Close();
             }
             else
             {
@@ -111,6 +113,7 @@ namespace sistemasfrotas.Views.Cadastros
                 _recibo.Salvar();
 
                 observer.Increment();
+                Close();
             }
         }
 

@@ -57,11 +57,12 @@
             this.txFun.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txFun.ForeColor = System.Drawing.Color.White;
             this.txFun.Location = new System.Drawing.Point(12, 32);
+            this.txFun.MaxLength = 11;
             this.txFun.Name = "txFun";
             this.txFun.Size = new System.Drawing.Size(200, 22);
             this.txFun.TabIndex = 7;
-            this.txFun.TextChanged += new System.EventHandler(this.txFun_TextChanged);
             this.txFun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txFun_KeyPress);
+            this.txFun.Leave += new System.EventHandler(this.txFun_TextChanged);
             // 
             // label1
             // 
@@ -69,9 +70,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.Size = new System.Drawing.Size(172, 21);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Modelo : ";
+            this.label1.Text = "Código do funcionario :";
             // 
             // btSalvar
             // 
@@ -107,9 +108,9 @@
             this.lbNome.ForeColor = System.Drawing.Color.White;
             this.lbNome.Location = new System.Drawing.Point(12, 147);
             this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(74, 21);
+            this.lbNome.Size = new System.Drawing.Size(158, 21);
             this.lbNome.TabIndex = 35;
-            this.lbNome.Text = "Modelo : ";
+            this.lbNome.Text = "Nome do funcionario";
             // 
             // label4
             // 
@@ -127,9 +128,9 @@
             this.lbEmpresa.ForeColor = System.Drawing.Color.White;
             this.lbEmpresa.Location = new System.Drawing.Point(12, 203);
             this.lbEmpresa.Name = "lbEmpresa";
-            this.lbEmpresa.Size = new System.Drawing.Size(74, 21);
+            this.lbEmpresa.Size = new System.Drawing.Size(138, 21);
             this.lbEmpresa.TabIndex = 37;
-            this.lbEmpresa.Text = "Modelo : ";
+            this.lbEmpresa.Text = "Nome da empresa";
             // 
             // panel2
             // 
@@ -145,6 +146,7 @@
             this.txValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txValor.ForeColor = System.Drawing.Color.White;
             this.txValor.Location = new System.Drawing.Point(12, 89);
+            this.txValor.MaxLength = 150;
             this.txValor.Name = "txValor";
             this.txValor.Size = new System.Drawing.Size(200, 22);
             this.txValor.TabIndex = 39;

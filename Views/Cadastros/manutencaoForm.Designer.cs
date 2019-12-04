@@ -56,6 +56,7 @@
             // txCusto
             // 
             this.txCusto.Location = new System.Drawing.Point(29, 25);
+            this.txCusto.MaxLength = 150;
             this.txCusto.Name = "txCusto";
             this.txCusto.Size = new System.Drawing.Size(211, 20);
             this.txCusto.TabIndex = 2;

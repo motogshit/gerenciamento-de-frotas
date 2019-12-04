@@ -68,11 +68,12 @@
             this.txCodV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txCodV.ForeColor = System.Drawing.Color.White;
             this.txCodV.Location = new System.Drawing.Point(16, 33);
+            this.txCodV.MaxLength = 11;
             this.txCodV.Name = "txCodV";
             this.txCodV.Size = new System.Drawing.Size(200, 18);
             this.txCodV.TabIndex = 19;
-            this.txCodV.TextChanged += new System.EventHandler(this.txCodV_TextChanged);
             this.txCodV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txCodV_KeyPress);
+            this.txCodV.Leave += new System.EventHandler(this.txCodV_TextChanged);
             // 
             // label5
             // 
@@ -96,6 +97,7 @@
             // 
             this.txPlaca.BackColor = System.Drawing.Color.MidnightBlue;
             this.txPlaca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txPlaca.Enabled = false;
             this.txPlaca.ForeColor = System.Drawing.Color.White;
             this.txPlaca.Location = new System.Drawing.Point(227, 33);
             this.txPlaca.Name = "txPlaca";
@@ -217,11 +219,13 @@
             this.txCodF.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txCodF.ForeColor = System.Drawing.Color.White;
             this.txCodF.Location = new System.Drawing.Point(16, 101);
+            this.txCodF.MaxLength = 11;
             this.txCodF.Name = "txCodF";
             this.txCodF.Size = new System.Drawing.Size(200, 18);
             this.txCodF.TabIndex = 34;
-            this.txCodF.TextChanged += new System.EventHandler(this.txCodF_TextChanged);
+            this.txCodF.CursorChanged += new System.EventHandler(this.txCodF_TextChanged);
             this.txCodF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txCodV_KeyPress);
+            this.txCodF.Leave += new System.EventHandler(this.txCodF_TextChanged);
             // 
             // label4
             // 
@@ -245,6 +249,7 @@
             // 
             this.txNome.BackColor = System.Drawing.Color.MidnightBlue;
             this.txNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txNome.Enabled = false;
             this.txNome.ForeColor = System.Drawing.Color.White;
             this.txNome.Location = new System.Drawing.Point(228, 97);
             this.txNome.Name = "txNome";
